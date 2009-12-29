@@ -10,3 +10,7 @@ def random_string
   10.times { random_string_for_uniqueness += letters[rand(letters.size - 1)]}
   random_string_for_uniqueness
 end
+
+def fixture_path
+  RAILS_ROOT + '/spec/fixtures/'
+end

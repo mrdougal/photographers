@@ -1,0 +1,18 @@
+
+<!-- We need a multipart form as we're uploading images -->
+
+<% semantic_form_for @photo, :html => { :multipart => true } do |f| %>  
+
+	<% f.inputs do %>
+
+		<%= f.input :image, :as => :file %>
+		<%= f.input :description %>
+		
+		
+		<%= f.buttons %>
+	
+	<% end %>
+
+	
+<% end %>
+

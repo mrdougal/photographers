@@ -9,12 +9,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091229011544) do
+ActiveRecord::Schema.define(:version => 20091229021224) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
     t.string   "permalink"
     t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "photos", :force => true do |t|
+    t.string   "name"
+    t.string   "permalink"
+    t.text     "description"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
