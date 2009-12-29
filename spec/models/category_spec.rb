@@ -1,13 +1,25 @@
 require 'spec_helper'
 
 describe Category do
-  before(:each) do
-    @valid_attributes = {
-      
-    }
+
+  it "should require a name" do
+    
+  end
+  
+  it "doesn't require a description" do
+    
+  end
+  
+  it "should belong to a site" do
+    pending
+  end
+  
+  it "should have many photos" do
+    pending
+  end
+  
+  it "should have many sets" do
+    pending
   end
 
-  it "should create a new instance given valid attributes" do
-    Category.create!(@valid_attributes)
-  end
 end
