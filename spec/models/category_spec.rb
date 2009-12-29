@@ -6,6 +6,18 @@ describe Category do
     
   end
   
+  describe "permalink" do
+    
+    it "should have a peramlink" do
+      
+    end
+    
+    it "should update the permalink to match the name" do
+      
+    end
+    
+  end
+  
   it "doesn't require a description" do
     
   end
