@@ -1,0 +1,3 @@
+[submodule "vendor/plugins/stringex"]
+	path = vendor/plugins/stringex
+	url = git://github.com/rsl/stringex.git
