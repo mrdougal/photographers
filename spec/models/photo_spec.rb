@@ -93,7 +93,7 @@ describe Photo do
     describe "without setting the name" do
       
       it "should have it's name related to the filename" do
-        @photo.name.should =~ /Jpg/
+        @photo.name.should =~ /Png/
       end
 
       it "should not be blank" do

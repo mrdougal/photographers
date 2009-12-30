@@ -24,8 +24,23 @@ class Photo < ActiveRecord::Base
   acts_as_taggable_on :tags
   
   
+  before_validation :generate_name_if_required
+  
   def to_s
-    name ||= 'bad name'
+    name
+  end
+  
+  
+  private
+  
+  def generate_name_if_required
+    
+    return unless self.name.blank?
+    return if self.file_file_name.blank?
+    
+    # We humanise the basename of the filename. (.* removes the extension)
+    self[:name] = File.basename(self.file_file_name,'.*').humanize
+    
   end
   
   
