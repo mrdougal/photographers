@@ -23,9 +23,10 @@ ActiveRecord::Schema.define(:version => 20091230000215) do
     t.string   "name"
     t.string   "permalink"
     t.text     "description"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

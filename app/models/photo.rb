@@ -1,7 +1,7 @@
 class Photo < ActiveRecord::Base
   
   # Paperclip settings
-  has_attached_file :image, :convert_options => { :all => "-channel RGB" }, 
+  has_attached_file :file, :convert_options => { :all => "-channel RGB" }, 
                             :default_url => "/images/missing/:attachment/:style.png",
                             :whiny => true,
                             :styles => { :large =>  ["600x400", :png],
@@ -10,7 +10,7 @@ class Photo < ActiveRecord::Base
                                          :tiny =>   ["40x40", :png] }
                             
   
-  validates_attachment_content_type :image, {
+  validates_attachment_content_type :file, {
     :content_type => %r{image}, 
     :message => "'s only please" 
   }             
