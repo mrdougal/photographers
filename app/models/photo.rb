@@ -19,7 +19,7 @@ class Photo < ActiveRecord::Base
   acts_as_url :name, :url_attribute => :permalink, :sync_url => true
   
   # Taggings
-  acts_as_taggable_on :categories, :tags, :sets
+  acts_as_taggable_on :tags
   
   
   def to_s

@@ -14,15 +14,15 @@ describe Photo do
   describe "compatible images (jpg, png)" do
   
     it "should have a filename" do
-      @photo.image_file_name.should_not be_blank
+      @photo.file_file_name.should_not be_blank
     end
     
     it "should have a filename" do
-      @photo.image_file_name.should == 'png.png'
+      @photo.file_file_name.should == 'png.png'
     end
   
     it "should have a content-type" do
-      @photo.image_content_type.should == 'image/png'
+      @photo.file_content_type.should == 'image/png'
     end
   
 
@@ -54,23 +54,23 @@ describe Photo do
     
   end
   
-  describe "categories" do
+  describe "tags" do
     
     context "empty" do
       
       it "should have any categories" do
-        @photo.categories.should be_empty
+        @photo.tags.should be_empty
       end
     end
     
-    context "with categories" do
+    context "with tags" do
       
       before(:each) do
-        @photo.update_attribute :category_list, 'Cheese, Ham'
+        @photo.update_attribute :tag_list, 'Cheese, Ham'
       end
       
-      it "should be in a category" do
-        @photo.categories.should_not be_empty
+      it "should have tags" do
+        @photo.tags.should_not be_empty
       end
     end
     
