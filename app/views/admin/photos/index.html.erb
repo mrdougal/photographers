@@ -1,4 +1,4 @@
-<h1>Listing photos</h1>
+<% title "Photos" %>
 
 <% @photos.each do |photo| %>
     <% link_to admin_photo_path(photo.permalink) do %>
