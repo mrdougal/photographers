@@ -26,4 +26,12 @@ module ApplicationHelper
     end
   end
   
+  # For when we are paginating
+  def pagination_title(set)
+    
+    return unless set.respond_to?('total_pages')
+    "page #{set.current_page} of #{set.total_pages}" if set.total_pages > 1
+  end
+  
+  
 end
