@@ -15,6 +15,8 @@ class Photo < ActiveRecord::Base
     :message => "Image's only please" 
   }             
 
+  validates_attachment_presence :file, :message => "You need to upload a file"
+
   # For permalinks on the photo
   acts_as_url :name, :url_attribute => :permalink, :sync_url => true
   

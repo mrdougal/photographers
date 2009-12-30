@@ -10,7 +10,18 @@ describe Photo do
     @photo.destroy
   end
   
-
+  describe "file" do
+    
+    before(:each) do
+      @photo = Photo.new(Factory.attributes_for :photo, :file => nil )
+    end
+    
+    it "should require a file" do
+      @photo.save
+      @photo.should have(1).error_on(:file)
+    end
+  end
+  
   describe "compatible images (jpg, png)" do
   
     it "should have a filename" do
@@ -77,5 +88,47 @@ describe Photo do
     
   end
 
+  describe "name" do
+    
+    describe "without setting the name" do
+      
+      it "should have it's name related to the filename" do
+        @photo.name.should =~ /Jpg/
+      end
+
+      it "should not be blank" do
+        @photo.name.should_not be_blank
+      end
+
+    end
+    
+    describe "with setting the name" do
+      
+      before(:each) do
+        @photo = Factory :photo, :name => "Cheese and Ham" 
+      end
+      
+      it "should preserve the name" do
+        @photo.name.should == 'Cheese and Ham'
+      end
+
+      it "should not be blank" do
+        @photo.name.should_not be_blank
+      end
+      
+      context "updating the file" do
+        before(:each) do
+          @photo.file = File.new(File.join(fixture_path, 'photos','jpg.jpg'))
+        end
+        
+        it "should preserve the name" do
+          @photo.name.should == 'Cheese and Ham'
+        end
+      end
+      
+    end
+    
+    
+  end
 
 end
