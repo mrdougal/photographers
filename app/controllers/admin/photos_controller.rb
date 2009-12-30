@@ -5,7 +5,7 @@ class Admin::PhotosController < AdminController
  
   # GET /photos
   def index
-    @photos = Photo.all
+    @photos = Photo.paginate :all, :page => params[:page]
   end
 
   # GET /photos/1
