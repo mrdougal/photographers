@@ -1,4 +1,7 @@
+<%= link_to 'View Site', root_path, { :class => 'right', :id => "logo" } %>
 
+
+<% if logged_in? %>
 
 <div id="admin_navigation">
 
@@ -6,7 +9,6 @@
 		<li><%= link_to 'Home', admin_path, { 
 				:id => "admin_home", 
 				:class => admin_current_class(admin_path)} %></li>
-		
 		<li><%= link_to 'Photos', admin_photos_path, { :class => admin_current_or_active_class(admin_photos_path)} %></li>
 		<li><%= link_to 'Users', admin_users_path, { :class => admin_current_or_active_class(admin_users_path)} %></li>
 	</ul>
@@ -15,5 +17,5 @@
 </div>
 
 
-
+<% end %>
 
