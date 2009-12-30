@@ -27,11 +27,39 @@ describe ApplicationHelper do
   
     it "should convert supplied objects to strings" do
                                  
-      obj = Factory :photo
+      obj = Factory :photo, :name => "Hello there" 
       title(obj)
-      @content_for_title.should =~ /#{obj.to_s}/
+      @content_for_title.should == 'Hello there - '
     end
   end
 
+
+  describe "meta description" do
+  
+    it "should add the supplied text to the description" do
+    
+      meta_description('cheese')
+      @content_for_meta_description.should == 'cheese\n'
+    end
+
+    it "should replace description with the last supplied text" do
+    
+      meta_description('cheese')
+      meta_description('bacon')
+      @content_for_meta_description.should == 'cheese\nbacon\n'
+    end
+
+    it "should append anything if supplied blank string" do
+      meta_description('')
+      @content_for_meta_description.should be_blank
+    end
+  
+    it "should convert supplied objects to strings" do
+                                 
+      obj = Factory :photo, :name => "Hello world" 
+      meta_description(obj)
+      @content_for_meta_description.should == 'Hello world\n'
+    end
+  end
 
 end

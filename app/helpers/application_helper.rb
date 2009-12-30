@@ -12,4 +12,17 @@ module ApplicationHelper
     end
   end
   
+  
+  # This is put into the meta.description tag
+  def meta_description(msg)
+
+    # We have a new string so that msg isn't effected
+    s = String.new(msg.to_s)
+    return if s.blank?
+      
+    content_for :meta_description do
+      s << '\n'
+    end
+  end
+  
 end
