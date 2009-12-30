@@ -1,0 +1,47 @@
+                 
+<% form_for [:admin, @user_session], { :class => 'login' } do |f| %>
+
+	<table border="0" cellspacing="0">
+		
+		<thead>
+			<tr>
+				<th>&nbsp;</th>
+				<td>
+					<%= error_messages_for :user_session, :header_message => 'We could not log you in because...', :message => "" %>
+				</td>
+			</tr>
+		</thead>
+		
+		<tfoot>
+			<tr>
+				<th>&nbsp;</th>
+				<td>
+					<%= f.submit 'Login', { 
+						:class => 'send', 
+						:accesskey  => 's', 
+						:disable_with  => 'Attempting to log you in' } %>
+						
+					or <%= link_to 'cancel', root_path, { :class  => 'cancel' } %>
+					
+				</td>
+			</tr>
+		</tfoot>
+		
+		<tbody>
+			<tr>
+				<th><%= f.label :username %></th>
+				<td>
+					<%= f.text_field :username, { :class => 'txt'} %>
+				</td>
+			</tr>
+			
+			<tr>
+				<th><%= f.label :password %></th>
+				<td>
+					<%= f.password_field :password, { :class  => 'txt'} %>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+    
+<% end %>

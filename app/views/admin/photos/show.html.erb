@@ -1,5 +1,9 @@
+<% title @photo %>
 
 <%= image_tag @photo.file.url(:large) %>
 
+<%= @photo.tag_list.to_sentence %>
+<%= @photo.set_list.to_sentence %>
 
-<%= link_to 'Edit', edit_photo_path(@photo) %>
+
+<%= render :partial => 'crud' %>

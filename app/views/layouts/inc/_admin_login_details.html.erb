@@ -1,0 +1,10 @@
+
+<span class="right">
+	You are logged in as <%= @current_user %>.
+		<%= link_to 'Logout', logout_path, {
+			:id => 'logout',
+			:confirm => 'You sure you want to logout?'
+		} %>
+</span>
+
+

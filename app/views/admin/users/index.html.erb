@@ -1,0 +1,41 @@
+<% 
+	msg = 'Users'
+	title msg 
+%>               
+
+
+
+
+
+<h1><%= msg %></h1>
+
+<table cellspacing="0" class="list">
+	<thead>
+		<tr> 
+			<th>&nbsp;</th>
+			<th>Name</th>
+			<th>Email</th>
+		</tr>
+	</thead>
+	
+	<tbody>
+		<% @users.each do |user| %>
+		<tr>
+			<td class="spinner_col"><%= image_tag 'admin/icons/user.png' %></td>
+			<td>
+				
+				<% link_to edit_admin_user_path(user) do %>
+					<p><%= user %></p>
+				<% end %>
+			</td>
+			<td>
+				<p><%= user.email %></p>
+			</td>
+		</tr>
+		<% end %>
+	</tbody>
+
+</table>
+
+
+<%= render 'crud' %>

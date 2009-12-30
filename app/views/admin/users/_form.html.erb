@@ -1,0 +1,78 @@
+<% form_for([:admin, @user]) do |f| %>
+
+  <%= f.error_messages %>
+
+
+<table border="0" cellspacing="0" cellpadding="5" class="half">
+
+	
+	<tfoot>
+		<tr>
+			<th>&nbsp;</th>
+			<td>
+				
+				<%= f.submit 'Save changes', {
+					:class => 'send', 
+					:accesskey => 's', 
+					:disable_with => 'Saving' } %>
+			    or 
+				<%= link_to 'cancel', admin_users_path, { 
+						:class  => 'cancel', 
+						:confirm  => 'You sure you want to cancel?' 
+					} %>
+				
+				<%= busy_image %>
+				
+			</td>
+		</tr>
+	</tfoot>
+     
+
+	<tbody>
+		
+		<!-- Name -->
+		<tr>
+			<th><%= f.label :username, "User Name #{required}" %></th>
+			<td><%= f.text_field :username, { :class => "txt" } %>
+				 <p class="note">This is what you login with.</p>
+			</td>
+		</tr>
+
+		<!-- Email -->
+		<tr>
+			<th><%= f.label :email, "Email addess #{required}" %></th>
+			<td><%= f.text_field :email, { :class => "txt" } %></td>
+		</tr>
+
+
+
+		<!-- Passwords -->
+		<tr>
+			<th><%= f.label :password, "Password #{required if @user.new_record?}" %></th>
+			<td><%= f.password_field :password, { :class => "txt" } %></td>
+		</tr>
+
+		<!-- Password confirmation -->
+		<tr>
+			<th><%= f.label :password_confirmation, "Retype password #{required if @user.new_record?}" %></th>
+			<td><%= f.password_field :password_confirmation, { :class => "txt" } %>
+				<p class="note">Your password need to be at least 4 characters long.</p>
+			</td>
+		</tr>
+
+			
+	</tbody>
+
+</table>
+
+<% end %> 
+
+
+<% content_for :side_bar do %>
+      
+<p>	
+	The password and the password confirmation are required to match. 
+	This is so that you don't miss type your password
+</p>
+
+<% end %>

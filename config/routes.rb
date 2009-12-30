@@ -8,14 +8,15 @@ ActionController::Routing::Routes.draw do |map|
     # This is so passenger dones't sleep while we browse cached areas of the site
     site.keep_alive '/stylesheets/caffine.css', :action => 'caffine', :format => 'css'
 
-    site.categories 'categories', :action => "categories"
-    site.category 'categories/:permalink', :action => "category"
+    # site.categories 'categories', :action => "categories"
+    # site.category 'categories/:permalink', :action => "category"
     
-    site.sets 'sets', :action => "sets" 
-    site.set 'sets/:permalink', :action => "set"   
+    # site.sets 'sets', :action => "sets" 
+    # site.set 'sets/:permalink', :action => "set"   
 
 
     site.photos 'photos', :action => "photos"
+    site.tagged_photos 'photos/tagged/:tag', :action => "tagged_photos" 
     site.photo 'photos/:permalink', :action => "photo"  
 
     # This is for defining a sitemap, used for SEO
@@ -50,16 +51,17 @@ ActionController::Routing::Routes.draw do |map|
 
     admin.resources :users
     admin.resource :user_sessions, :except => [:new, :destroy]
-    admin.resources :categories, :collection => {:sort => :post}
+    # admin.resources :categories, :collection => {:sort => :post}
     admin.resources :photos
-    admin.resources :sets, :collection => {:sort => :post}
+    # admin.resources :sets, :collection => {:sort => :post}
 
-    # Admin 404
-    admin.connect 'admin/*url', :action => 'not_found'
   end
 
+  # Admin 404
+  map.connect 'admin/*url', :controller => "admin", :action => 'not_found'
+
   # Catch all, mainly for categories
-  map.connect '*url', :controller => 'site', :action => 'show'
+  # map.connect '*url', :controller => 'site', :action => 'show'
 
 
 

@@ -1,0 +1,14 @@
+
+<ul>
+	<% categories.each do |category| %>  
+	
+		<% content_tag_for :li, category do %>
+			<%= link_to category, category.permalink_url, { :class => current_or_active_class(category.permalink_url)} %>
+			<%= render :partial => 'layouts/inc/navigation', :locals => { 
+				:categories => category.children 
+				} if @breadcrumbs.include?(category.permalink_url) && !category.leaf? %>
+			
+		<% end %>
+	<% end %>
+</ul>
+

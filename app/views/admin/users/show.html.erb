@@ -1,0 +1,21 @@
+<% 
+	msg = @user
+	title msg 
+%>               
+
+
+
+
+<h1><%= msg %></h1>
+
+<table border="0">
+	
+	<tbody>
+		<tr>
+			<th>email</th>
+			<td><%= @user.email %></td>
+		</tr>
+	</tbody>
+</table>
+
+<%= render 'crud' %>

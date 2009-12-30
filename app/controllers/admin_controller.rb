@@ -8,7 +8,7 @@ class AdminController < ApplicationController
   # uses_tiny_mce
   
   def not_found
-    render :template => 'shared/rescues/admin_not_found', :status => 404 
+    render :template => 'admin/shared/rescues/not_found', :status => 404 
   end
 
 

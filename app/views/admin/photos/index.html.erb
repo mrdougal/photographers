@@ -1,9 +1,8 @@
 <h1>Listing photos</h1>
 
 <% @photos.each do |photo| %>
-    <%= link_to image_tag(photo.file.url(:medium)), photo %>
+    <%= link_to image_tag(photo.file.url(:medium)), [:admin, photo] %>
 <% end %>
 
-<br />
 
-<%= link_to 'New photo', new_photo_path %>
+<%= render :partial => 'crud' %>

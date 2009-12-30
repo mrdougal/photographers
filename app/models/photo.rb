@@ -12,7 +12,7 @@ class Photo < ActiveRecord::Base
   
   validates_attachment_content_type :file, {
     :content_type => %r{image}, 
-    :message => "'s only please" 
+    :message => "Image's only please" 
   }             
 
   # For permalinks on the photo
@@ -23,7 +23,7 @@ class Photo < ActiveRecord::Base
   
   
   def to_s
-    name
+    name ||= 'bad name'
   end
   
   
