@@ -6,6 +6,7 @@ module ApplicationHelper
                              
     # We have a new string so that msg isn't effected
     s = String.new(msg.to_s)
+    return if s.blank?
       
     content_for :title do
       s << ' - ' unless s.blank? # Only string if it's not blank

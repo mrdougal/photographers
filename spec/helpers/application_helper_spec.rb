@@ -20,9 +20,14 @@ describe ApplicationHelper do
       @content_for_title.should == 'cheese - bacon - '
     end
 
-    it "should append anything if supplied blank string" do
+    it "should return nil if supplied blank string" do
       title('')
-      @content_for_title.should == ''
+      @content_for_title.should == nil
+    end
+  
+    it "should return nil if supplied nil" do
+      title(nil)
+      @content_for_title.should == nil
     end
   
     it "should convert supplied objects to strings" do
