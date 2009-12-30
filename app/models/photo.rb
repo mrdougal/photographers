@@ -21,6 +21,10 @@ class Photo < ActiveRecord::Base
   # Taggings
   acts_as_taggable_on :categories, :tags, :sets
   
-
+  
+  def to_s
+    name
+  end
+  
   
 end
