@@ -17,6 +17,10 @@ class Photo < ActiveRecord::Base
 
   # For permalinks on the photo
   acts_as_url :name, :url_attribute => :permalink, :sync_url => true
+  
+  # Taggings
+  acts_as_taggable_on :categories, :tags, :sets
+  
 
   
 end

@@ -22,8 +22,11 @@ Rails::Initializer.run do |config|
   config.gem 'formtastic',  :version => '~> 0.9.7' 
   
   config.gem "authlogic"
-  config.gem 'thoughtbot-paperclip', :lib => 'paperclip'
-  config.gem 'mislav-will_paginate', :version => '~> 2.3.8', :lib => 'will_paginate'
+  config.gem 'paperclip'
+  config.gem 'will_paginate', :version => '~> 2.3.8'
+
+  # For tagging pages
+  config.gem "acts-as-taggable-on"
   
 
   # Only load the plugins named here, in the order given (default is alphabetical).
