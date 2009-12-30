@@ -29,7 +29,7 @@ describe Photo do
     end
     
     it "should have a filename" do
-      @photo.file_file_name.should == 'png.png'
+      @photo.file_file_name.should == 'portrait.png'
     end
   
     it "should have a content-type" do
@@ -93,13 +93,17 @@ describe Photo do
     describe "without setting the name" do
       
       it "should have it's name related to the filename" do
-        @photo.name.should =~ /Png/
+        @photo.name.should =~ /Portrait/
       end
 
       it "should not be blank" do
         @photo.name.should_not be_blank
       end
-
+      
+      it "should have a permalink" do
+        @photo.permalink.should =~ /portrait/
+      end
+      
     end
     
     describe "with setting the name" do
@@ -111,6 +115,10 @@ describe Photo do
       it "should preserve the name" do
         @photo.name.should == 'Cheese and Ham'
       end
+      
+      it "should have a permalink" do
+        @photo.permalink.should =~ /cheese-and-ham/
+      end
 
       it "should not be blank" do
         @photo.name.should_not be_blank
@@ -118,7 +126,7 @@ describe Photo do
       
       context "updating the file" do
         before(:each) do
-          @photo.file = File.new(File.join(fixture_path, 'photos','jpg.jpg'))
+          @photo.file = File.new(File.join(fixture_path, 'photos','mugshot.jpg'))
         end
         
         it "should preserve the name" do

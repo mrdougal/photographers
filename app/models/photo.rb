@@ -17,6 +17,9 @@ class Photo < ActiveRecord::Base
 
   validates_attachment_presence :file, :message => "You need to upload a file"
 
+  # This needs to be placed before acts_as_url as it expects their to be a name.
+  before_validation :generate_name_if_required
+
   # For permalinks on the photo
   acts_as_url :name, :url_attribute => :permalink, :sync_url => true
   
@@ -24,7 +27,6 @@ class Photo < ActiveRecord::Base
   acts_as_taggable_on :tags
   
   
-  before_validation :generate_name_if_required
   
   def to_s
     name
