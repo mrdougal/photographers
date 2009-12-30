@@ -39,7 +39,7 @@ class Photo < ActiveRecord::Base
     return if self.file_file_name.blank?
     
     # We humanise the basename of the filename. (.* removes the extension)
-    self[:name] = File.basename(self.file_file_name,'.*').humanize
+    self[:name] = File.basename(self.file_file_name,'.*').gsub(/-/,' ').humanize
     
   end
   
