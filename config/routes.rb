@@ -1,47 +1,66 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :photos
 
-  map.resources :categories
 
-  # The priority is based upon order of creation: first created -> highest priority.
 
-  # Sample of regular route:
-  #   map.connect 'products/:id', :controller => 'catalog', :action => 'view'
-  # Keep in mind you can assign values other than :controller and :action
+  # This is the public part of the website
+  map.with_options :controller => 'site' do |site|
+    
+    # This is so passenger dones't sleep while we browse cached areas of the site
+    site.keep_alive '/stylesheets/caffine.css', :action => 'caffine', :format => 'css'
 
-  # Sample of named route:
-  #   map.purchase 'products/:id/purchase', :controller => 'catalog', :action => 'purchase'
-  # This route can be invoked with purchase_url(:id => product.id)
+    site.categories 'categories', :action => "categories"
+    site.category 'categories/:permalink', :action => "category"
+    
+    site.sets 'sets', :action => "sets" 
+    site.set 'sets/:permalink', :action => "set"   
 
-  # Sample resource route (maps HTTP verbs to controller actions automatically):
-  #   map.resources :products
 
-  # Sample resource route with options:
-  #   map.resources :products, :member => { :short => :get, :toggle => :post }, :collection => { :sold => :get }
+    site.photos 'photos', :action => "photos"
+    site.photo 'photos/:permalink', :action => "photo"  
 
-  # Sample resource route with sub-resources:
-  #   map.resources :products, :has_many => [ :comments, :sales ], :has_one => :seller
+    # This is for defining a sitemap, used for SEO
+    site.sitemap 'sitemap', :action => 'map'
+    site.formatted_sitemap 'sitemap.:format', :action => 'map'
   
-  # Sample resource route with more complex sub-resources
-  #   map.resources :products do |products|
-  #     products.resources :comments
-  #     products.resources :sales, :collection => { :recent => :get }
-  #   end
+    site.about_us 'about', :action => "about" 
 
-  # Sample resource route within a namespace:
-  #   map.namespace :admin do |admin|
-  #     # Directs /admin/products/* to Admin::ProductsController (app/controllers/admin/products_controller.rb)
-  #     admin.resources :products
-  #   end
+    # Define the homepage
+    site.root :action => 'homepage'
+    
+    # Rescues, called from Apache config
+    site.connect 'rescue/404', :action => "not_found" 
+    site.connect 'rescue/403', :action => "not_allowed" 
+    
+  end
 
-  # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
-  # map.root :controller => "welcome"
 
-  # See how all your routes lay out with "rake routes"
+  # login/logout
+  map.with_options :controller => 'admin/user_sessions' do |session|
+    session.login 'login', :action => 'new'
+    session.logout 'logout', :action => 'destroy'
+    
+    # A summary page for when the user first arrives in the admin section
+    session.admin 'admin', :action => 'dashboard'
 
-  # Install the default routes as the lowest priority.
-  # Note: These default routes make all actions in every controller accessible via GET requests. You should
-  # consider removing or commenting them out if you're using named routes and resources.
-  map.connect ':controller/:action/:id'
-  map.connect ':controller/:action/:id.:format'
+  end
+  
+  
+  # For the admin section of the website
+  map.namespace :admin do |admin|
+
+    admin.resources :users
+    admin.resource :user_sessions, :except => [:new, :destroy]
+    admin.resources :categories, :collection => {:sort => :post}
+    admin.resources :photos
+    admin.resources :sets, :collection => {:sort => :post}
+
+    # Admin 404
+    admin.connect 'admin/*url', :action => 'not_found'
+  end
+
+  # Catch all, mainly for categories
+  map.connect '*url', :controller => 'site', :action => 'show'
+
+
+
 end
