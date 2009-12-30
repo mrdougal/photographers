@@ -27,9 +27,17 @@ class Photo < ActiveRecord::Base
   acts_as_taggable_on :tags
   
   
+  # By default order the photos by when they were created
+  default_scope :order => "created_at desc"
+  
+  
   
   def to_s
     name
+  end
+  
+  def to_param
+    permalink
   end
   
   

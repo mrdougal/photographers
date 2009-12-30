@@ -1,4 +1,6 @@
 class Admin::PhotosController < AdminController
+  
+  before_filter :find_photo, :except => [:index, :new, :create] 
  
  
   # GET /photos
@@ -8,7 +10,6 @@ class Admin::PhotosController < AdminController
 
   # GET /photos/1
   def show
-    @photo = Photo.find(params[:id])
   end
 
   # GET /photos/new
@@ -18,7 +19,6 @@ class Admin::PhotosController < AdminController
 
   # GET /photos/1/edit
   def edit
-    @photo = Photo.find(params[:id])
   end
 
   # POST /photos
@@ -35,7 +35,6 @@ class Admin::PhotosController < AdminController
 
   # PUT /photos/1
   def update
-    @photo = Photo.find(params[:id])
     
     if @photo.update_attributes(params[:photo])
     
@@ -48,9 +47,16 @@ class Admin::PhotosController < AdminController
 
   # DELETE /photos/1
   def destroy
-    @photo = Photo.find(params[:id])
     @photo.destroy
-
     redirect_to admin_photos_url
+  end
+  
+  
+  private
+  
+  def find_photo
+    
+    @photo = Photo.find_by_permalink!(params[:id])
+    
   end
 end
