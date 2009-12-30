@@ -3,7 +3,6 @@
 <%= image_tag @photo.file.url(:large) %>
 
 <%= @photo.tag_list.to_sentence %>
-<%= @photo.set_list.to_sentence %>
 
 
 <%= render :partial => 'crud' %>
