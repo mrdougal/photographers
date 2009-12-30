@@ -61,7 +61,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect 'admin/*url', :controller => "admin", :action => 'not_found'
 
   # Catch all, mainly for categories
-  # map.connect '*url', :controller => 'site', :action => 'show'
+  map.connect '*url', :controller => 'site', :action => 'not_found'
 
 
 
