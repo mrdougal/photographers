@@ -14,6 +14,12 @@ Rails::Initializer.run do |config|
   # Add additional load paths for your own custom dirs
   # config.load_paths += %W( #{RAILS_ROOT}/extras )
 
+
+  # We don't store the cache in the shared directory, 
+  # as preserving the cache across deployments, will result in incompatibles.
+  config.cache_store = :file_store, "#{Rails.root}/tmp/cache"
+
+  
   # Specify gems that this application depends on and have them installed with rake gems:install
   # Run the following if you haven't already:
   # gem sources -a http://gemcutter.org/
