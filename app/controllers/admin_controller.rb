@@ -5,8 +5,10 @@ class AdminController < ApplicationController
 
   helper_method :logged_in?, :current_user_session, :current_user
   
-  # uses_tiny_mce
-  
+  caches_action :index
+
+
+
   def not_found
     render :template => 'admin/shared/rescues/not_found', :status => 404 
   end

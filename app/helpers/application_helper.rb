@@ -33,8 +33,5 @@ module ApplicationHelper
     "page #{set.current_page} of #{set.total_pages}" if set.total_pages > 1
   end
   
-  def default_styles
-    %w'reset base plugins/formtastic plugins/formtastic-changes photo_site'
-  end
   
 end

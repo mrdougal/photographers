@@ -1,3 +1,11 @@
+body {
+	font: 10pt "Lucida Grande", Lucida, Verdana, sans-serif;
+	color: #000;
+	background-color: #cacaca;
+}
+
+/* @group general styles */
+
 .container {
 	width: 80%;
 	margin-right: auto;
@@ -28,7 +36,34 @@
 	float: right;
 }
 
+/* @end */
+
 /* @group structure */
+
+#top {
+	background-color: #919191;
+	width: 100%;
+	float: left;
+	clear: both;
+}
+
+/* @group options */
+
+#options {
+	background-color: #e5e5e5;
+	width: 100%;
+	float: left;
+	clear: both;
+}
+
+#options .container {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+
+
+/* @end */
 
 /* @group nav */
 
@@ -42,11 +77,23 @@
 	margin-right: 10px;
 	margin-left: -0.5em;
 	padding: .6em 1em 0.6em;
+	text-decoration: none;
+	color: #000;
 }
 
 #nav a.current {
 	background-color: #e5e5e5;
+	-moz-border-top-left-radius: 5px;
+	-moz-border-top-right-radius: 5px;
+  	-webkit-border-top-left-radius: 5px;
+  	-webkit-border-top-right-radius: 5px;
 }
+
+/* @group My Group */
+
+
+
+/* @end */
 
 
 
@@ -55,6 +102,7 @@
 #main {
 	float: left;
 	width: 90%;
+	padding-top: 1em;
 }
 
 #content {
@@ -62,6 +110,10 @@
 	float: left;
 	border-bottom: 3px solid #cacaca;
 	border-right: 1px solid #cacaca;
+}
+
+#content .inside {
+	background-color: #fff;
 }
 
 #side {
@@ -214,10 +266,7 @@
 /* @group crud */
 
 .crud {
-	padding-top: 10px;
-	padding-bottom: 10px;
 	display: block;
-	margin-bottom: 10px;
 }
 
 .crud a {
