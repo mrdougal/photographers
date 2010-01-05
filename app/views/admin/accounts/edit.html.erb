@@ -1,0 +1,18 @@
+<% title "Editing your account" %>
+
+
+<% semantic_form_for [:admin, @current_account] do |f| %>
+
+
+	<% f.inputs :name => 'Contact details' do %>
+		<%= f.input :name %>
+		<%= f.input :email %>
+		<%= f.input :phone %>
+	
+	<% end %>
+	
+	<%= f.buttons %>
+
+
+<% end %>
+

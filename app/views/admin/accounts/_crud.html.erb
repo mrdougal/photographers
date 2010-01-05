@@ -1,0 +1,12 @@
+<% content_for :options do %>
+
+<div class="crud">
+                      
+	<%= link_to 'Edit', edit_admin_account_path, { 
+		:class => 'edit', 
+		:accesskey => 'e' } unless controller.action_name == 'edit'  %>
+	
+</div>
+ 
+
+<% end %>
