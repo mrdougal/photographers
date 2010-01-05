@@ -2,18 +2,12 @@ ActionController::Routing::Routes.draw do |map|
 
 
 
+
   # This is the public part of the website
   map.with_options :controller => 'site' do |site|
     
     # This is so passenger dones't sleep while we browse cached areas of the site
     site.keep_alive '/stylesheets/caffine.css', :action => 'caffine', :format => 'css'
-
-    # site.categories 'categories', :action => "categories"
-    # site.category 'categories/:permalink', :action => "category"
-    
-    # site.sets 'sets', :action => "sets" 
-    # site.set 'sets/:permalink', :action => "set"   
-
 
     site.photos 'photos', :action => "photos"
     site.tagged_photos 'photos/tagged/:tag', :action => "tagged_photos" 
@@ -49,11 +43,11 @@ ActionController::Routing::Routes.draw do |map|
   # For the admin section of the website
   map.namespace :admin do |admin|
 
+    # admin.resources :accounts
+
     admin.resources :users
     admin.resource :user_sessions, :except => [:new, :destroy]
-    # admin.resources :categories, :collection => {:sort => :post}
     admin.resources :photos
-    # admin.resources :sets, :collection => {:sort => :post}
 
   end
 
