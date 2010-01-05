@@ -83,6 +83,11 @@ describe Photo do
       it "should have tags" do
         @photo.tags.should_not be_empty
       end
+      
+      it "should have those tags attached to the account" do
+        @photo.account.taggings.should_not be_empty
+      end
+      
     end
     
     

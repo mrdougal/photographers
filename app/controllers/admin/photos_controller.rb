@@ -5,7 +5,7 @@ class Admin::PhotosController < AdminController
  
   # GET /photos
   def index
-    @photos = Photo.paginate :all, :page => params[:page]
+    @photos = @current_account.photos.paginate :all, :page => params[:page]
   end
 
   # GET /photos/1
@@ -14,7 +14,7 @@ class Admin::PhotosController < AdminController
 
   # GET /photos/new
   def new
-    @photo = Photo.new
+    @photo = @current_account.photos.new
   end
 
   # GET /photos/1/edit
@@ -23,7 +23,8 @@ class Admin::PhotosController < AdminController
 
   # POST /photos
   def create
-    @photo = Photo.new(params[:photo])
+    
+    @photo = @current_account.photos.new(params[:photo].merge( { :tags => nil }))
 
     if @photo.save
       flash[:notice] = 'Photo was successfully created.'
@@ -56,7 +57,7 @@ class Admin::PhotosController < AdminController
   
   def find_photo
     
-    @photo = Photo.find_by_permalink!(params[:id])
+    @photo = @current_account.photos.find_by_permalink!(params[:id])
     
   end
 end

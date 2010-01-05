@@ -1,5 +1,8 @@
 class Photo < ActiveRecord::Base
   
+  belongs_to :account
+  validates_presence_of :account
+  
   # Paperclip settings
   has_attached_file :file, :convert_options => { :all => "-channel RGB" }, 
                             :default_url => "/images/missing/:attachment/:style.png",
