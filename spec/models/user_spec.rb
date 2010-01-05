@@ -21,7 +21,25 @@ describe User do
       u.valid?
       u.should have(1).error_on(:email)
     end
+    
+    it "should be unique" do
+      
+      u = User.new @user.attributes
+      u.valid?
+      
+      u.errors[:email].should == 'has already been taken'
+    end
+    
+    it "should be unique across the system" do
+      
+      u = User.new @user.attributes.merge({:account  => Factory(:account)})
+      u.valid?
+      
+      u.errors[:email].should == 'has already been taken'
+    end
+    
   end
+  
   
 
 end
