@@ -8,7 +8,6 @@ describe User do
 
   describe "email" do
     it "should be required" do
-      # lambda { Factory :user, :email => nil }.should raise_error(error)
       
       u = Factory.build :user, :email => nil
       u.valid?
@@ -23,6 +22,6 @@ describe User do
       u.should have(1).error_on(:email)
     end
   end
-
+  
 
 end
