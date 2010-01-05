@@ -15,6 +15,8 @@ class ActsAsTaggableOnMigration < ActiveRecord::Migration
       t.column :taggable_type, :string
       t.column :context, :string
       
+      t.integer :account_id
+      
       t.column :created_at, :datetime
     end
     

@@ -9,15 +9,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091230013250) do
+ActiveRecord::Schema.define(:version => 20091230000215) do
 
-  create_table "categories", :force => true do |t|
+  create_table "accounts", :force => true do |t|
     t.string   "name"
-    t.string   "permalink"
-    t.text     "description"
+    t.string   "subdomain"
+    t.string   "email"
+    t.string   "phone"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "accounts", ["subdomain"], :name => "index_accounts_on_subdomain"
 
   create_table "photos", :force => true do |t|
     t.string   "name"
@@ -27,9 +30,13 @@ ActiveRecord::Schema.define(:version => 20091230013250) do
     t.string   "file_content_type"
     t.integer  "file_file_size"
     t.datetime "file_updated_at"
+    t.integer  "account_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "photos", ["permalink", "account_id"], :name => "index_photos_on_permalink_and_account_id", :unique => true
+  add_index "photos", ["permalink"], :name => "index_photos_on_permalink"
 
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"
@@ -38,6 +45,7 @@ ActiveRecord::Schema.define(:version => 20091230013250) do
     t.string   "tagger_type"
     t.string   "taggable_type"
     t.string   "context"
+    t.integer  "account_id"
     t.datetime "created_at"
   end
 
@@ -54,6 +62,7 @@ ActiveRecord::Schema.define(:version => 20091230013250) do
     t.string   "encrypted_password"
     t.string   "password_salt"
     t.string   "persistence_token"
+    t.integer  "account_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
