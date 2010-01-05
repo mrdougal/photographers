@@ -15,4 +15,8 @@ class Account < ActiveRecord::Base
     "#{subdomain}.photo.local"
   end
   
+  def to_s
+    name
+  end
+  
 end
