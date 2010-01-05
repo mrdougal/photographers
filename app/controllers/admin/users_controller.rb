@@ -3,15 +3,15 @@ class Admin::UsersController < AdminController
     before_filter :find_user
 
     def index
-      @users = User.all
+      @users = @current_account.users.all
     end
     
     def new
-      @user = User.new
+      @user = @current_account.users.new
     end
     
     def create
-      @user = User.new params[:user]
+      @user = @current_account.users.new params[:user]
       if @user.save
         flash[:notice] = "#{@template.link_to @user, admin_user_path(@user)} created..."
         redirect_to admin_users_path
@@ -50,7 +50,7 @@ class Admin::UsersController < AdminController
 
     private
     def find_user
-      @user = User.find(params[:id]) if params[:id]
+      @user = @current_account.users.find(params[:id]) if params[:id]
     end
   
 end
