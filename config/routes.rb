@@ -43,7 +43,7 @@ ActionController::Routing::Routes.draw do |map|
   # For the admin section of the website
   map.namespace :admin do |admin|
 
-    # admin.resources :accounts
+    admin.resource :account, :only => [:show, :edit, :update] 
 
     admin.resources :users
     admin.resource :user_sessions, :except => [:new, :destroy]
