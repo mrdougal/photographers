@@ -24,7 +24,7 @@ class Admin::PhotosController < AdminController
   # POST /photos
   def create
     
-    @photo = @current_account.photos.new(params[:photo].merge( { :tags => nil }))
+    @photo = @current_account.photos.new(params[:photo])
 
     if @photo.save
       flash[:notice] = 'Photo was successfully created.'
