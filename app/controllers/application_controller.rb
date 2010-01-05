@@ -13,4 +13,13 @@ class ApplicationController < ActionController::Base
   rescue_from ActionController::UnknownAction, :with => :not_found 
   
   
+  # We need to load up their account, based on their subdomain
+  before_filter :set_current_account
+  
+  private
+  
+  def set_current_account
+    @current_account = Account.find_by_subdomain!(request.subdomains.last) #unless request.subdomains.empty?
+  end
+  
 end
