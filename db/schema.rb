@@ -13,14 +13,14 @@ ActiveRecord::Schema.define(:version => 20091230000215) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
-    t.string   "subdomain"
+    t.string   "domain"
     t.string   "email"
     t.string   "phone"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "accounts", ["subdomain"], :name => "index_accounts_on_subdomain"
+  add_index "accounts", ["domain"], :name => "index_accounts_on_domain"
 
   create_table "photos", :force => true do |t|
     t.string   "name"

@@ -6,14 +6,14 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Major.create(:name => 'Daley', :city => cities.first)
 
-@newfangled = Account.create({ 
+@newfangled = Account.create!({ 
                 :name      => 'Newfangled',
-                :subdomain => 'newfangled',
+                :domain => 'newfangled.local',
                 :phone     => '0410 42339',
                 :email     => "hello@newfangled.com.au" 
               })
               
-@dougal = @newfangled.users.create({ 
+@dougal = @newfangled.users.create!({ 
                 :username              => 'Dougal', 
                 :email                 => "hello@newfangled.com.au",
                 :password              => 'password', 
@@ -21,14 +21,14 @@
               })
 
 
-@shine = Account.create({ 
+@shine = Account.create!({ 
                 :name      => "Shine Photo",
-                :subdomain => 'shine',
+                :domain => 'shinephoto.local',
                 :phone     => '0412 3456',
                 :email     => "shine@shinephoto.com.au"
               })
 
-@narlea = @shine.users.create({ 
+@narlea = @shine.users.create!({ 
                 :username              => 'Narlea', 
                 :email                 => "narlea@shinephone.com.au",
                 :password              => 'password', 

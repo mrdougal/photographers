@@ -6,13 +6,13 @@ class Account < ActiveRecord::Base
   has_many :photos
   
   # We require all of these to be filled out
-  validates_presence_of :name, :subdomain, :email, :phone
+  validates_presence_of :name, :domain, :email, :phone
   
-  # We can't have subdomains that are the same
-  validates_uniqueness_of :subdomain, :name, :email
+  # We can't have domains that are the same
+  validates_uniqueness_of :domain, :name, :email
   
   def default_url
-    "#{subdomain}.photo.local"
+    "#{domain}.photo.local"
   end
   
   def to_s

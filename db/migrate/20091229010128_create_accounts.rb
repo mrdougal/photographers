@@ -3,19 +3,19 @@ class CreateAccounts < ActiveRecord::Migration
     create_table :accounts do |t|
       
       t.string :name
-      t.string :subdomain
+      t.string :domain
       t.string :email
       t.string :phone
 
       t.timestamps
     end
     
-    add_index :accounts, :subdomain
+    add_index :accounts, :domain
     
   end
 
   def self.down
-    remove_index :accounts, :subdomain
+    remove_index :accounts, :domain
     drop_table :accounts
   end
 end
