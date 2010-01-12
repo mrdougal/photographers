@@ -6,6 +6,22 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Major.create(:name => 'Daley', :city => cities.first)
 
+@main = Account.create!({ 
+                :name      => 'Photo site',
+                :domain => 'photo.local',
+                :phone     => '0410 42339',
+                :email     => "contact@mrdougal.com" 
+              })
+
+@admin = @main.users.create!({
+                :username              => 'Mr Dougal', 
+                :email                 => "contact@mrdougal.com",
+                :password              => 'password', 
+                :password_confirmation => "password" 
+              })              
+              
+
+
 @newfangled = Account.create!({ 
                 :name      => 'Newfangled',
                 :domain => 'newfangled.local',
