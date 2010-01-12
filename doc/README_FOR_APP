@@ -1,2 +1,15 @@
-Use this README file to introduce your application and point to useful places in the API for learning more.
-Run "rake doc:app" to generate API documentation for your models, controllers, helpers, and libraries.
+Apache configuration.
+We adjust the apache config, so that each domain has it's own public folder.
+This is so that we can grant ftp access, and perform caching on a per site basis.
+
+Add in *PassengerAppRoot* attribute, see example below.
+
+<VirtualHost *:80>
+  ServerName client.local
+  DocumentRoot "/sites/client-a/public"
+  PassengerAppRoot "/apps/photo"
+  <Directory "/sites/client-a/public">
+    Order allow,deny
+    Allow from all
+  </Directory>
+</VirtualHost>
