@@ -5,7 +5,7 @@ class AdminController < ApplicationController
 
   helper_method :logged_in?, :current_user_session, :current_user
   
-  caches_action :index
+  # caches_action :index
 
 
 
