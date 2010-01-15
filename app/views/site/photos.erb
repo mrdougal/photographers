@@ -1,0 +1,7 @@
+<% title 'Photos' %>
+
+<% @photos.each do |photo| %>
+	<% link_to photo, :title => "View #{photo}" do %>
+	<%= image_tag photo.file.url(:medium) %>
+	<% end %>
+<% end %>

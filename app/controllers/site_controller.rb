@@ -27,12 +27,12 @@ class SiteController < ApplicationController
 
   # get /photos
   def photos
-    
+    @photos = @current_account.photos
   end
 
   # get /photos/:permalink
   def photo
-    @photo = Photo.find_by_permalink! params[:peramlink]
+    @photo = @current_account.photos.find_by_permalink! params[:permalink]
   end
   
   
