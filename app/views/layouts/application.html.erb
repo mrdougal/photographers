@@ -13,10 +13,12 @@
 	 } unless @content_for_meta_description.blank? %>
 
 
-	<%= stylesheet_link_tag :all %>
+	<%= stylesheet_link_tag :all, :recursive => true %>
 	
 </head>
 <body>
+
+<h1>Base layout</h1>
 
 <p style="color: green"><%= flash[:notice] %></p>
 
