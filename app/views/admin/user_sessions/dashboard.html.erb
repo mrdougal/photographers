@@ -1,0 +1,25 @@
+<% 
+msg = "Welcome #{@current_user}"
+title msg %>
+    
+
+
+<div class="announcement">
+
+	<h1><%= msg %></h1>
+	
+	<p>This is the admin section of your website, this is were you can add and create new
+		products to be displayed on the site.</p>
+		
+	
+</div>
+
+
+
+
+
+<% content_for :side_bar do %>
+
+<%= link_to 'View public website', root_path, { :class => "www" } %>
+<% end %>
+
