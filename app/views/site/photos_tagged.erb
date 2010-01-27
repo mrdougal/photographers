@@ -3,5 +3,8 @@
 
 <% @photos.each do |photo| %>
 	
-	<%= image_tag photo.url(:thumb) %>
+	<% link_to photo_path(photo), :title => "View #{photo}" do %>
+	<%= image_tag photo.url(:medium) %>
+	<% end %>
+
 <% end %>
