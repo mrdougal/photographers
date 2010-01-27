@@ -24,6 +24,7 @@ class SiteController < ApplicationController
     # For pretty display
     @tag.titleize
     
+    # If we don't have anything to show, we'll render the empty page
     return render 'photos_tagged_empty' if @photos.empty?
   end
   
