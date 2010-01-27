@@ -11,8 +11,9 @@ db/*.sqlite3
 # Ignore capistrano file
 Capfile
 
-# Ignore the cached pages, javascript, and stylesheets
+# Ignore the cached pages, javascript, stylesheets and uploaded content
 public/system
 public/cache
 public/javascripts/all*
 public/stylesheets/all*
+public/uploaded

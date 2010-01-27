@@ -2,7 +2,7 @@ class Photo < ActiveRecord::Base
   
   # Paperclip settings
   has_attached_file :file, :convert_options => { :all => "-channel RGB" }, 
-                           :url => "/uploads/photos/:id/:style/:filename", 
+                           :url => "/uploaded/photos/:id/:style/:filename", 
                            :default_url => "/images/missing/:attachment/:style.png",
                            :whiny => true,
                            :styles => { :large =>  ["600x400", :png],
