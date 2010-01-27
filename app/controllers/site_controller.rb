@@ -17,7 +17,14 @@ class SiteController < ApplicationController
   
   # get /photos/tagged/:tag
   def photos_tagged
-    @photos = Photo.find_tagged_with params[:permalink]
+    
+    @tag = params[:tag].rstrip
+    @photos = Photo.find_tagged_with @tag
+    
+    # For pretty display
+    @tag.titleize
+    
+    return render 'photos_tagged_empty' if @photos.empty?
   end
   
   

@@ -23,9 +23,20 @@ describe SiteController do
       response.should render_template('photo')
     end
     
-    it "renders the photos tagged template" do
+    it "renders 404 if the photo doesn't exists" do
+      get :photo, :permalink => "non-existant"
+      response.should render_template('shared/rescues/not_found') 
+    end
+
+    
+    it "renders the photos tagged template (as there are photos tagged with the term)" do
       get :photos_tagged, :tag => "bacon" 
       response.should render_template('photos_tagged')
+    end
+    
+    it "render empty (as there are no photo tagged with our term)" do
+      get :photos_tagged, :tag => "cheese"
+      response.should render_template('photos_tagged_empty') 
     end
     
   end

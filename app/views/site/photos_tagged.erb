@@ -1,0 +1,7 @@
+<% title "Photos tagged #{@tag}" %> 
+
+
+<% @photos.each do |photo| %>
+	
+	<%= image_tag photo.url(:thumb) %>
+<% end %>
