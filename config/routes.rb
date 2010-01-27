@@ -9,11 +9,7 @@ ActionController::Routing::Routes.draw do |map|
     # This is so passenger dones't sleep while we browse cached areas of the site
     site.keep_alive '/stylesheets/caffine.css', :action => 'caffine', :format => 'css'
 
-
-    site.photos 'photos', :action => "photos"
-    site.photo 'photos/:permalink', :action => "photo"  
-    site.tagged_photos 'photos/tagged/:tag', :action => "photos_tagged" 
-
+    # General pages
     site.about_us 'about', :action => "about" 
     site.contact 'contact', :action => "contact" 
 
@@ -29,6 +25,15 @@ ActionController::Routing::Routes.draw do |map|
     site.root :action => 'homepage'
     
   end
+  
+  map.with_options :controller => "photos" do |photo|
+
+    photo.photos 'photos', :action => "index"
+    photo.photos_tagged 'photos/tagged/:tag', :action => "tagged" 
+    photo.photo_sets 'photos/sets/:permalink', :action => "set" 
+    photo.photo 'photos/:permalink', :action => "show"
+    
+  end 
   
   
   
