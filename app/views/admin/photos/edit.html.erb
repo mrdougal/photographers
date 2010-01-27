@@ -1,0 +1,5 @@
+<%# title "Editing '#{@photo}'" %>
+<%= image_tag @photo.file.url(:medium) %>
+
+<%= render 'form' %>
+<%= render :partial => 'crud' %>

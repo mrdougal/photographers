@@ -20,6 +20,9 @@ Rails::Initializer.run do |config|
   config.gem 'thoughtbot-paperclip', :lib => 'paperclip'
   config.gem 'mislav-will_paginate', :version => '~> 2.3.8', :lib => 'will_paginate'
   
+  # For easy forms
+  config.gem 'formtastic',  :version => '~> 0.9.7' 
+  
   # For permalinks
   config.gem 'stringex'
   
