@@ -27,7 +27,7 @@ describe SiteController do
       end
     
       it "recognises and generates params for #tagged" do
-        { :get => "/photos/tagged/1" }.should route_to(:controller => "site", :action => "tagged_photos", :tag => "1" )
+        { :get => "/photos/tagged/1" }.should route_to(:controller => "site", :action => "photos_tagged", :tag => "1" )
       end
     end
 

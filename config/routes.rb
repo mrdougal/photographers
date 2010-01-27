@@ -12,7 +12,7 @@ ActionController::Routing::Routes.draw do |map|
 
     site.photos 'photos', :action => "photos"
     site.photo 'photos/:permalink', :action => "photo"  
-    site.tagged_photos 'photos/tagged/:tag', :action => "tagged_photos" 
+    site.tagged_photos 'photos/tagged/:tag', :action => "photos_tagged" 
 
     site.about_us 'about', :action => "about" 
     site.contact 'contact', :action => "contact" 

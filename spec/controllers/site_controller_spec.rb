@@ -24,8 +24,8 @@ describe SiteController do
     end
     
     it "renders the photos tagged template" do
-      get :tagged_photos, :tag => "bacon" 
-      response.should render_template('tagged_photos')
+      get :photos_tagged, :tag => "bacon" 
+      response.should render_template('photos_tagged')
     end
     
   end

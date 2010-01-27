@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
 
   rescue_from ActiveRecord::RecordNotFound, :with    => :not_found
   rescue_from ActionController::RoutingError, :with  => :not_found
-  rescue_from ActionController::UnknownAction, :with => :not_foundend
+  rescue_from ActionController::UnknownAction, :with => :not_found
 
 
   # For 404, which can be called via Apache care of it's config

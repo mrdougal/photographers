@@ -16,7 +16,7 @@ class SiteController < ApplicationController
   end
   
   # get /photos/tagged/:tag
-  def tagged_photos
+  def photos_tagged
     @photos = Photo.find_tagged_with params[:permalink]
   end
   
