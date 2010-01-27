@@ -5,7 +5,7 @@
 
 <% @photos.each do |photo| %>
     <% link_to admin_photo_path(photo.permalink) do %>
-		<%= image_tag photo.url(:thumb) %>
+		<%= image_tag photo.url(:thumb), { :class => "uploaded" } %>
 	<% end %>
 <% end %>
 
