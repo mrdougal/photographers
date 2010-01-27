@@ -6,16 +6,6 @@
 
 		<%= stylesheet_link_tag :all, :recursive => true, :cache => true %>
 
-		<%#= stylesheet_link_tag 'admin/admin' %>
-		
-		<%#= javascript_include_tag :all, :cache => true %>
-
-		<%#= javascript_include_tag ['admin/sortable_tree',
-									'admin/updatable_select_box',
-									# 'admin/facebox',
-									'admin/admin' ] %>
-		
-
 		<title><%= yield :title %> Admin</title>
 	</head>
 	<body class="admin">
@@ -23,26 +13,17 @@
 		<div id="top">
 			<div class="container">
                             
+				<!-- Show them who they're logged in as -->
+				<%= render 'layouts/inc/admin_login_details' if logged_in? %>
 
 				<!-- The navigation -->
-				<%#= render 'layouts/inc/admin_nav' %>
+				<%= render 'layouts/inc/admin_nav' %>
+
 
 			</div>
 		</div>
 		
 
-	    <!-- CRUD links etc in here -->
-		<div id="options">
-			<div class="container">
-				
-				<!-- Show them who they're logged in as -->
-				<%#= render 'layouts/inc/admin_login_details' if logged_in? %>
-				
-				<%= yield :options %>
-			</div>
-		</div>
-
-	            
 		<!-- main content in here -->
 		<div id="main" >
 
@@ -51,23 +32,21 @@
 				<div id="content">
 					
 					<!-- Flash! -->
-					<%#= render :partial => 'layouts/inc/flash', :locals => { :flash => flash } unless flash.empty? %>
-					
-					<div class="inside">
-						<%= yield %>
-					</div>
+					<%= render :partial => 'layouts/inc/flash', :locals => { :flash => flash } unless flash.empty? %>
+
+					<%= yield %>
 					
 				</div> <!-- end of content -->
 				
+				
 				<div id="side">
-					<div class="inside">
-						
-						<%= yield :side %>
-						<%= yield :help %>
-						
-						
-					</div> <!-- end of inside -->
+
+					<%= yield :options %>
+					<%= yield :side %>
+					<%= yield :help %>
+		
 				</div> <!-- end of side -->
+				
 				
 			</div> <!-- end of container -->
 		</div> <!-- end of main -->

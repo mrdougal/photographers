@@ -1,0 +1,306 @@
+.container {
+	width: 90%;
+}
+
+/* @group bar */
+
+a#logout {
+	font-weight: bold;
+}
+
+.right {
+	float: right;
+}
+
+a#site {
+	background: transparent url(../../images/admin/icons/house.png) no-repeat left center;
+	padding-left: 25px;
+}
+
+
+
+/* @end */
+
+/* @group options/crud */
+
+#options {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+	background-color: #f4f4f4;
+	display: block;
+	float: left;
+	clear: both;
+	width: 100%;
+}
+
+.crud a {
+	font-weight: normal;
+	font-style: normal;
+	background-position: 0 center;
+	text-decoration: none;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-right: 5px;
+}
+
+.crud a:hover {
+	background-color: #eaeaea;
+}
+
+a.new {
+	background: url(/images/admin/icons/new.png) no-repeat left center;
+	padding: 5px 10px 5px 20px;
+}
+
+a.edit {
+	background: url(/images/admin/icons/edit.png) no-repeat left center;
+	padding: 5px 10px 5px 20px;
+}
+
+a.delete {
+	background: url(/images/admin/icons/delete.png) no-repeat left center;
+	padding: 5px 10px 5px 20px;
+}
+
+a.show {
+	background: url(/images/admin/icons/show.png) no-repeat left center;
+	padding: 5px 10px 5px 20px;
+}
+
+a.www {
+	background: url(/images/admin/icons/www.png) no-repeat left center;
+	padding-left: 20px;
+	padding-top: 1em;
+	padding-bottom: 1em;
+}
+
+/* @end */
+
+/* @group flash */
+
+div.flash {
+	padding: 10px;
+	margin: 0;
+}
+
+.notice {
+	background-color: #ffe767;
+	color: #000;
+}
+
+.error {
+	color: #fff;
+	background-color: #ff0012;
+}
+
+
+
+/* @end */
+
+/* @group drop and drop tree */
+
+/* @group sorting toggle */
+
+a#sorting_toggle {
+	font-weight: normal;
+	font-style: normal;
+	background-position: 0 center;
+	text-decoration: none;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-right: 10px;
+	margin-right: 10px;
+}
+
+a.toggle-off {
+	background: url(/images/admin/icons/sitemap.png) no-repeat left center;
+	padding: 5px 10px 5px 20px;
+}
+
+a.toggle-on {
+	background: url(/images/admin/icons/stop.png) no-repeat left center;
+	padding: 5px 10px 5px 20px;
+}
+
+
+
+/* @end */
+
+/* @group #list */
+
+#list {
+	padding: 0;
+}
+
+#list ul {
+	padding: 5px 0 0;
+	list-style-type: none;
+	list-style-image: none;
+	display: block;
+	margin: 0;
+}
+
+#list li {
+	padding-top: 10px;
+	list-style-type: none;
+	list-style-image: none;
+}
+
+#list .closed li {
+	display: none;
+}
+
+#list li ul {
+	padding-top: 5px;
+	list-style-type: none;
+	list-style-image: none;
+	padding-left: 30px;
+}
+
+#list li.first {
+	height: 0;
+}
+
+#list a.edit {
+	padding: 10px 10px 10px 0;
+}
+
+
+
+/* @end */
+
+/* @group sortable */
+
+.sortable li {
+	cursor: move;
+}
+
+.sortable a.edit {
+	display: none;
+}
+
+/* Dragging and dropping */
+
+.sortable .drop_hover {
+    	background: url(/images/admin/icons/drag.png) no-repeat left;
+}
+
+.sortable .drop_top {
+	background-position: 10px top;
+}
+    .sortable .drop_bottom {
+	background-position: 10px bottom;
+}
+    .sortable .drop_insert {
+	background-position: 20px 100%;
+}
+
+
+
+/* @end */
+
+
+
+/* @end */
+
+#footer {
+	float: left;
+	width: 100%;
+	color: #9f9f9f;
+}
+
+th {
+	padding-right: 20px;
+}
+
+/* @group forms */
+
+tfoot tr td {
+	padding-top: 10px;
+}
+
+/* @group send */
+
+input.send {
+	background-color: #cacaca;
+	font-size: 14px;
+	padding: 5px 10px;
+	-moz-border-radius: 5px;
+  	-webkit-border-radius: 5px;
+	border-style: none;
+	cursor: pointer;
+	margin-right: 5px;
+}
+
+input.send:hover {
+	background-color: #4e4e4e;
+	color: #fffeff;
+}
+
+
+
+/* @end */
+
+
+
+/* @end */
+
+/* @group list */
+
+.list {
+	width: 100%;
+}
+
+.list tbody tr td, .list tbody tr th {
+	border-bottom: 1px solid #f4f4f4;
+}
+
+.list th {
+	border-bottom: 2px solid #cacaca;
+	padding-bottom: 5px;
+	padding-top: 5px;
+}
+
+.list .spinner_col {
+	width: 30px;
+	padding-top: 10px;
+}
+
+/* @group brands */
+
+.brand-logo-thumb {
+	width: 120px;
+}
+
+.brand-name {
+	width: 150px;
+}
+
+
+
+/* @end */
+
+
+
+/* @end */
+
+/* @group structure */
+
+#side_bar {
+	width: 250px;
+}
+
+.postit {
+	background-color: #fffee7;
+	border: 1px solid #f3f1db;
+	padding: 10px;
+}
+
+
+
+/* @end */
+
+img.uploaded {
+	border: 3px solid #cacaca;
+}

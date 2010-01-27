@@ -1,0 +1,9 @@
+
+<div id="flash">
+
+	<!-- The flash -->
+	<% flash.each do |key, message| %>
+	<%= content_tag :div, message, :class => "flash #{key}" %>
+	<% end %>	
+
+</div>
