@@ -15,6 +15,7 @@ ActionController::Routing::Routes.draw do |map|
     site.tagged_photos 'photos/tagged/:tag', :action => "tagged_photos" 
 
     site.about_us 'about', :action => "about" 
+    site.contact 'contact', :action => "contact" 
 
     # Rescues, called from Apache config
     site.connect 'rescue/404', :action => "not_found" 
