@@ -20,6 +20,11 @@ Rails::Initializer.run do |config|
   config.gem 'thoughtbot-paperclip', :lib => 'paperclip'
   config.gem 'mislav-will_paginate', :version => '~> 2.3.8', :lib => 'will_paginate'
   
+  # For permalinks
+  config.gem 'stringex'
+  
+  # For tagging pages
+  config.gem "acts-as-taggable-on"
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
