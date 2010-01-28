@@ -4,13 +4,31 @@ describe PhotosController do
 
   describe "routing" do
     
-      it "recognises and generates params for #photos" do
-        { :get => "/photos" }.should route_to(:controller => "photos", :action => "index")
+      describe "index" do
+        
+        it "recognises and generates params" do
+          { :get => "/photos" }.should route_to(:controller => "photos", :action => "index")
+        end
+      
+        it "recognises and generate params with pagination" do
+          { :get => "/photos/page/2" }.should route_to(:controller => "photos", :action => "index", :page => "2" )
+        end
+      end
+      
+      describe "tagged" do
+        
+        it "recognises and generates params" do
+          { :get => "/photos/tagged/cheese" }.should route_to(:controller => "photos", :action => "tagged", :tag => "cheese" )
+        end
+        
+        it "recognises and generate params with pagination" do
+          { :get => "/photos/tagged/cheese/page/2" }.should route_to( :controller => "photos", 
+                                                                      :action => "tagged", 
+                                                                      :tag => "cheese", 
+                                                                      :page => "2" )
+        end
       end
 
-      it "recognises and generates params for #tagged" do
-        { :get => "/photos/tagged/cheese" }.should route_to(:controller => "photos", :action => "tagged", :tag => "cheese" )
-      end
 
       it "recognises and generate params for #sets" do
         { :get => "/photos/sets/bacon" }.should route_to(:controller => "photos", :action => "set", :permalink => "bacon" )

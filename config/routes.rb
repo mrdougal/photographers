@@ -28,8 +28,15 @@ ActionController::Routing::Routes.draw do |map|
   
   map.with_options :controller => "photos" do |photo|
 
+    # Pagination routes needs to be defined before their non-paginated siblings. 
+    # (as Rails matches routes in order top to bottom)
+    
+    photo.photos_with_pages 'photos/page/:page', :action => "index" 
     photo.photos 'photos', :action => "index"
+
+    photo.photos_tagged_with_pages 'photos/tagged/:tag/page/:page', :action => "tagged" 
     photo.photos_tagged 'photos/tagged/:tag', :action => "tagged" 
+    
     photo.photo_sets 'photos/sets/:permalink', :action => "set" 
     photo.photo 'photos/:permalink', :action => "show"
     

@@ -1,5 +1,9 @@
 class Photo < ActiveRecord::Base
   
+  # Pagination settings
+  cattr_accessor :per_page
+  @@per_page = 30
+  
   # Paperclip settings
   has_attached_file :file, :convert_options => { :all => "-channel RGB" }, 
                            :url => "/uploaded/photos/:id/:style/:filename", 
