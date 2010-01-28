@@ -14,6 +14,6 @@ Capfile
 # Ignore the cached pages, javascript, stylesheets and uploaded content
 public/system
 public/cache
-public/javascripts/all*
-public/stylesheets/all*
+public/javascripts/cache*
+public/stylesheets/cache*
 public/uploaded
