@@ -1,7 +1,6 @@
 <% title "Photos #{pagination_title @photos}" %>
 
 
-<%= will_paginate @photos %>
 
 <% @photos.each do |photo| %>
     <% link_to admin_photo_path(photo.permalink) do %>
