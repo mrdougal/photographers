@@ -11,8 +11,8 @@ class Photo < ActiveRecord::Base
                            :whiny => true,
                            :styles => { :large =>  ["600x400", :png],
                                         :medium => ["300x300", :png], 
-                                        :thumb =>  ["100x100", :png], 
-                                        :tiny =>   ["40x40", :png] }
+                                        :thumb =>  ["80x80#", :png], 
+                                        :tiny =>   ["40x40#", :png] }
                             
   
   validates_attachment_content_type :file, {
