@@ -1,0 +1,57 @@
+/* @override http://shinephoto.local/stylesheets/site/shinephoto.css?1264733246 */
+
+body {
+	font-size: 10pt;
+}
+
+h1 {
+	font-size: 14pt;
+	font-weight: normal;
+	font-style: normal;
+}
+
+#wrapper {
+	padding-bottom: 40px;
+	padding-top: 40px;
+}
+
+.container {
+	width: 80%;
+	padding-left: 10%;
+	padding-right: 10%;
+	max-width: 1200px;
+	min-width: 800px;
+}
+
+#footer {
+	border-top: 1px dotted #cacaca;
+	padding-top: 40px;
+}
+
+img.uploaded {
+	border: 1px solid #cacaca;
+}
+
+/* @group slideshow */
+
+.scrollable {
+	margin-top: 5px;
+}
+
+#image_wrap {
+	background: url(../../images/admin/icons/busy.gif) no-repeat center center;
+}
+
+.scrollable img {
+	margin-right: 5px;
+	margin-bottom: 5px;
+	border-width: 1px;
+}
+
+.scrollable a.active img {
+	border-color: #000;
+}
+
+
+
+/* @end */
