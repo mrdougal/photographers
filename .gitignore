@@ -8,8 +8,14 @@ tmp/*
 # Ignore dev and test databases
 db/*.sqlite3
 
+# Ignore the database config
+config/database.yml
+
 # Ignore capistrano file
 Capfile
+
+# Ignore the deploy file
+config/deploy.rb
 
 # Ignore the cached pages, javascript, stylesheets and uploaded content
 public/system

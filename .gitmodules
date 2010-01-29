@@ -1,0 +1,3 @@
+[submodule "vendor/plugins/wheres-your-database-yml-dude"]
+	path = vendor/plugins/wheres-your-database-yml-dude
+	url = git://github.com/technicalpickles/wheres-your-database-yml-dude.git
