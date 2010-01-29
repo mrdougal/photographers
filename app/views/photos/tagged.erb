@@ -1,6 +1,8 @@
-<% title "Photos tagged #{@tag} #{pagination_title @photos}" %>
+<% 
+	msg = "#{pluralize @photos.total_entries, "photo"} tagged #{@tag}"
+	title  "#{msg} #{pagination_title @photos}" %>
 
-
+<h1><%= msg %></h1>
 
 <% @photos.each do |photo| %>
     <% link_to photo do %>
