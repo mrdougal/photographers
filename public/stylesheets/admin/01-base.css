@@ -86,14 +86,18 @@ body {
 	-moz-border-top-right-radius: 5px;
   	-webkit-border-top-left-radius: 5px;
   	-webkit-border-top-right-radius: 5px;
+	font-size: 12pt;
 }
 
 #nav a:hover {
-	color: #b00000;
+	color: #00c1ec;
 }
 
 #nav a.current {
 	background-color: #fff;
+	font-size: 14pt;
+	margin-bottom: -5px;
+	margin-top: -5px;
 }
 
 #nav .right a {
@@ -327,9 +331,11 @@ a.logout {
 
 div.pagination {
 	display: block;
+	clear: both;
+	width: 100%;
+	margin-top: 20px;
+	margin-bottom: 10px;
 	float: left;
-	padding-top: .6em;
-	padding-bottom: .6em;
 }
 
 .pagination a {

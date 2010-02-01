@@ -2,6 +2,10 @@
 	width: 90%;
 }
 
+a {
+	color: #00a0c2;
+}
+
 /* @group bar */
 
 a#logout {
@@ -13,8 +17,10 @@ a#logout {
 }
 
 a#site {
-	background: transparent url(../../images/admin/icons/house.png) no-repeat left center;
-	padding-left: 25px;
+	background-image:url(/images/admin/icons/house.png);
+	background-repeat: no-repeat;
+	background-position: 10px center;
+	padding-left: 35px;
 }
 
 
@@ -45,7 +51,6 @@ a#site {
 }
 
 .crud a:hover {
-	background-color: #eaeaea;
 }
 
 a.new {
@@ -303,4 +308,8 @@ input.send:hover {
 
 img.uploaded {
 	border: 3px solid #cacaca;
+}
+
+a img.uploaded:hover {
+	border: 3px solid #00c1ec;
 }
