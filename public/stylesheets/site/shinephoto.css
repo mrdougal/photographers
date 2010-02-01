@@ -94,6 +94,12 @@ h2.caption {
 	margin-top: 5px;
 }
 
+#image_wrap {
+	background: url(/images/admin/icons/busy.gif) no-repeat center center;
+	width: 600px;
+	height: 400px;
+}
+
 .scrollable img {
 	margin-right: 5px;
 	margin-bottom: 5px;
