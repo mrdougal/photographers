@@ -1,11 +1,19 @@
 <% title @photo %>
 
-
+<h1><%= @photo %></h1>
 <%= image_tag @photo.url(:large), { :class => "uploaded" } %>
 
 <div class="attributes">
 	
-	<%= simple_format @photo.tag_list.to_sentence %>
+	<% unless @photo.tags.empty? %>	
+	<!-- We'll show our list of tags -->
+	Tagged <%= @photo.tags.collect {|tag| link_to(tag, photos_tagged_path(tag.to_s), {
+			:title => "View other products tagged #{tag}" 
+		}) }.to_sentence %>
+	
+	<% end %>
+	
+	
 	<%= simple_format @photo.description %>
 </div>
 	
