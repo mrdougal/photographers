@@ -30,6 +30,8 @@
 			</div>
 		</div>
 		
+		<!-- Flash! -->
+		<%= render :partial => 'layouts/inc/flash', :locals => { :flash => flash } unless flash.empty? %>
 
 		<!-- main content in here -->
 		<div id="main" >
@@ -38,8 +40,6 @@
 				
 				<div id="content">
 					
-					<!-- Flash! -->
-					<%= render :partial => 'layouts/inc/flash', :locals => { :flash => flash } unless flash.empty? %>
 
 					<%= yield %>
 					

@@ -1,8 +1,10 @@
 // Javascript for when we're in the admin section of the website
 
 $(document).ready(function() {
+
 	// Stuff to do as soon as the DOM is ready;
 	attach_confirmation_to_public_links();
+	highlight_flash();
 
 });
 
@@ -23,4 +25,10 @@ function attach_confirmation_to_public_links () {
 			};
 		});
 	})
+}
+
+function highlight_flash () {
+	
+	// Find and highlight the flash
+	$('#flash .flash').effect('highlight', {}, 1000);
 }
