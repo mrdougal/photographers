@@ -1,0 +1,28 @@
+<div id="slideshow">
+	
+	<!-- wrapper element for the large image -->
+	<div id="image_wrap">
+
+		<% link_to '#', :title => "View photo" do |l| %>
+		<!-- Initially the image is a simple 1x1 pixel transparent GIF -->
+		<%= image_tag 'shim.gif', { :class => "uploaded" } %>
+		<% end %>
+
+		<!-- Title of the photo goes in here -->
+		<h2 class="caption"></h2>
+
+	</div>
+
+	<!-- root element for scrollable -->
+	<div class="scrollable">	
+	
+		<!-- root element for the items -->
+		<div class="items">
+			<%- @photos.each do |photo| -%>
+				<%- link_to photo, :title => "#{photo}" do |l| -%>
+					<%= image_tag photo.url(:tiny), { :class => "uploaded" } %>
+				<%- end -%>
+			<%- end -%>
+		</div>
+	</div>
+</div>

@@ -4,11 +4,8 @@
 
 <h1><%= msg %></h1>
 
-<% @photos.each do |photo| %>
-    <% link_to photo do %>
-		<%= image_tag photo.url(:thumb), { :class => "uploaded" } %>
-	<% end %>
-<% end %>
+<%= render :partial => 'slideshow' %>
+
 
 
 <%= will_paginate @photos %>
