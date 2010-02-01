@@ -39,3 +39,34 @@ form.formtastic .boolean p {
 	clear: both;
 }
 
+form.formtastic .large input {
+	font-size: 22pt;
+}
+
+form.formtastic .string input {
+	border-style: none;
+	border-bottom: 1px dashed #515151;
+}
+
+/* @group send */
+
+form.formtastic .commit input {
+	background-color: #cacaca;
+	font-size: 14px;
+	padding: 5px 10px;
+	-moz-border-radius: 5px;
+  	-webkit-border-radius: 5px;
+	border-style: none;
+	cursor: pointer;
+	margin-right: 5px;
+}
+
+form.formtastic .commit input:hover {
+	background-color: #515151;
+	color: #fffeff;
+}
+
+
+
+/* @end */
+
