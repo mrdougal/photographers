@@ -23,7 +23,7 @@ function start_slideshow () {
 		var title = $('#slideshow h2').text($(this).attr('title'));
 		
 		// calculate large image's URL based on the thumbnail URL
-		var image_url = thumb.attr("src").replace("tiny", "large");
+		var image_url = thumb.attr("src").replace("tiny", "slideshow");
 		var my_url = $(this).attr("href");
 
 		// get handle to element that wraps the image and make it semitransparent

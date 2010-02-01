@@ -10,7 +10,7 @@ class Photo < ActiveRecord::Base
                            :default_url => "/images/missing/:attachment/:style.png",
                            :whiny => true,
                            :styles => { :large =>  ["600x400", :png],
-                                        :medium => ["300x300", :png], 
+                                        :slideshow => ["800#x450#", :png], 
                                         :thumb =>  ["80x80#", :png], 
                                         :tiny =>   ["40x40#", :png] }
                             
