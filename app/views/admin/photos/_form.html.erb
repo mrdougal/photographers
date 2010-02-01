@@ -8,7 +8,7 @@
 
 		<%= f.input :name, :wrapper_html => { :class => "large" } %>
 		<%= f.input :file, :as => :file, 
-						   :hint => (image_tag @photo.file.url(:medium), { :class => "uploaded" } if @photo.file?) %>
+						   :hint => (image_tag @photo.file.url(:tiny), { :class => "uploaded" } if @photo.file?) %>
 		<%= f.input :description, :input_html => { :rows => 5 } %>
 
 		<%= f.input :tag_list, :as => :string %>
