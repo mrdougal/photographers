@@ -6,7 +6,7 @@
 
 	<% f.inputs do %>
 
-		<%= f.input :file, :as => :file %>
+		<%= f.input :file, :as => :file, :hint => (image_tag @photo.file.url(:medium), { :class => "uploaded" } if @photo.file?) %>
 		<%= f.input :name %>
 		<%= f.input :description, :input_html => { :rows => 5 } %>
 		
