@@ -1,3 +1,5 @@
+/* @override http://shinephoto.local/stylesheets/admin/02-admin.css?1264750366 */
+
 .container {
 	width: 90%;
 }
@@ -6,10 +8,11 @@ a {
 	color: #00a0c2;
 }
 
-/* @group bar */
+/* @group top */
 
 a#logout {
 	font-weight: bold;
+	color: #000;
 }
 
 .right {
@@ -221,44 +224,16 @@ a.toggle-on {
 #footer {
 	float: left;
 	width: 100%;
-	color: #9f9f9f;
+	color: #515151;
+}
+
+#footer a {
+	color: #000;
 }
 
 th {
 	padding-right: 20px;
 }
-
-/* @group forms */
-
-tfoot tr td {
-	padding-top: 10px;
-}
-
-/* @group send */
-
-input.send {
-	background-color: #cacaca;
-	font-size: 14px;
-	padding: 5px 10px;
-	-moz-border-radius: 5px;
-  	-webkit-border-radius: 5px;
-	border-style: none;
-	cursor: pointer;
-	margin-right: 5px;
-}
-
-input.send:hover {
-	background-color: #4e4e4e;
-	color: #fffeff;
-}
-
-
-
-/* @end */
-
-
-
-/* @end */
 
 /* @group list */
 
