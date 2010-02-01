@@ -95,7 +95,7 @@ h2.caption {
 }
 
 #image_wrap {
-	background: url(/images/admin/icons/busy.gif) no-repeat center center;
+	background: url(/images/admin/icons/busy-large.gif) no-repeat center center;
 	width: 600px;
 	height: 400px;
 }
