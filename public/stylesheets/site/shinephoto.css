@@ -1,18 +1,60 @@
-/* @override http://shinephoto.local/stylesheets/site/shinephoto.css?1264733246 */
+/* @override 
+	http://shinephoto.local/stylesheets/site/shinephoto.css?1264733246
+	http://shinephoto.local/stylesheets/site/shinephoto.css?1264998648
+	http://shinephoto.local/stylesheets/site/shinephoto.css?1264998791
+*/
 
 body {
 	font-size: 10pt;
 }
 
+/* @group top */
+
+#top {
+	background-color: #919191;
+	padding-top: 20px;
+	padding-bottom: 10px;
+	float: left;
+	clear: both;
+	width: 100%;
+}
+
+#top a {
+	text-decoration: none;
+	color: #fff;
+}
+
+#root {
+	font-size: 14pt;
+}
+
+
+
+/* @end */
+
 h1 {
 	font-size: 14pt;
 	font-weight: normal;
 	font-style: normal;
+	margin-bottom: 10px;
 }
 
 #wrapper {
 	padding-bottom: 40px;
 	padding-top: 40px;
+	width: 100%;
+	clear: both;
+	float: left;
+}
+
+#main {
+	width: 70%;
+	float: right;
+}
+
+#side {
+	width: 30%;
+	float: left;
 }
 
 .container {
@@ -26,6 +68,10 @@ h1 {
 #footer {
 	border-top: 1px dotted #cacaca;
 	padding-top: 40px;
+	padding-bottom: 40px;
+	float: left;
+	clear: both;
+	width: 100%;
 }
 
 img.uploaded {
@@ -34,12 +80,18 @@ img.uploaded {
 
 /* @group slideshow */
 
-.scrollable {
-	margin-top: 5px;
+#slideshow {
+	width: 600px;
 }
 
-#image_wrap {
-	background: url(../../images/admin/icons/busy.gif) no-repeat center center;
+h2.caption {
+	padding-bottom: 10px;
+	padding-top: 10px;
+	font-size: 12pt;
+}
+
+.scrollable {
+	margin-top: 5px;
 }
 
 .scrollable img {

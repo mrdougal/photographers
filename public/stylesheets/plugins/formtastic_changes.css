@@ -41,11 +41,18 @@ form.formtastic .boolean p {
 
 form.formtastic .large input {
 	font-size: 22pt;
+	padding-bottom: 10px;
+	margin-top: -10px;
 }
 
 form.formtastic .string input {
 	border-style: none;
-	border-bottom: 1px dashed #515151;
+	border-bottom: 2px dashed #cacaca;
+}
+
+form.formtastic .text textarea {
+	border-style: none;
+	border-bottom: 2px dashed #cacaca;
 }
 
 /* @group send */

@@ -7,14 +7,53 @@
 	<title><%= yield :title %> Shine photo</title>
 
 	<%= stylesheet_link_tag :all, :cache => 'cache/public' %>
-
+	<%= stylesheet_link_tag 'site/shinephoto' %>
+	
+	<%= javascript_include_tag :all, :cache => 'cache/public' %>
 
 
 </head>
 <body>
 
+	<div id="top">
+		
+		<div class="container">
+			
+		
+			<%= link_to 'Shine Photo', root_path, { :id => "root" } %>
+		
+			<ul id="nav">
+				<li><%= link_to 'Photos', photos_path %></li>
+			</ul>
+		</div>
+	</div> <!-- end of top -->
 
-	<%= yield %>
+	<div id="wrapper">
 
+		<div class="container">
+			
+			
+			<div id="main">
+				<%= yield %>
+			</div>
+			
+			<div id="side">
+				<%= yield :side %>
+			</div>
+			
+		</div> <!-- end of container -->
+	</div> <!-- end of wrapper -->
+	
+	<div id="footer">
+		<div class="container">
+			
+			<!-- This is where our sitemap will at the base of each page -->
+			Sitemap and other stuff goes in here
+			
+		</div>
+	</div>
+	
+	<%= yield :javascript %>
+	
 </body>
 </html>
