@@ -4,9 +4,9 @@ $(document).ready(function() {
 
 	// Stuff to do as soon as the DOM is ready;
 	attach_confirmation_to_public_links();
-	highlight_flash();
+	// bind_overlay_links();
 
-	bind_ajax_links();
+	highlight_flash();
 
 });
 
@@ -29,13 +29,13 @@ function attach_confirmation_to_public_links () {
 	})
 }
 
-function bind_ajax_links () {
+function bind_overlay_links () {
 
 	$('a[rel]').overlay({	
 
 		expose: {
 			color: '#919191',
-			opacity: 0.5
+			opacity: 0.75
 		},
 		
 		onBeforeLoad: function () {
@@ -50,6 +50,8 @@ function bind_ajax_links () {
 	});
 	
 }
+
+
 
 function highlight_flash () {
 	

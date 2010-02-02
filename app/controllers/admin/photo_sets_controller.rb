@@ -10,6 +10,8 @@ class Admin::PhotoSetsController < AdminController
   
   def new
     @photo_set = PhotoSet.new
+    render :partial => 'form' if request.xhr?
+    
   end
   
   # POST /photos

@@ -17,16 +17,17 @@ class Admin::PhotosController < AdminController
 
   # GET /photos/new
   def new
+
     @photo = Photo.new
+
     render :partial => 'form' if request.xhr?
-    
+
   end
 
   # GET /photos/1/edit
   def edit
-    
+
     render :partial => 'form' if request.xhr?
-    
   end
 
   # POST /photos
@@ -36,7 +37,13 @@ class Admin::PhotosController < AdminController
 
     if @photo.save
       flash[:notice] = 'Photo was successfully created.'
-      redirect_to [:admin, @photo]
+      
+      if request.xhr?
+        render :nothing => true
+      else
+        redirect_to [:admin, @photo]
+      end
+      
     else
       render :action => "new"
     end
@@ -48,7 +55,12 @@ class Admin::PhotosController < AdminController
     if @photo.update_attributes(params[:photo])
     
       flash[:notice] = 'Photo was successfully updated.'
-      redirect_to [:admin, @photo]
+      
+      if request.xhr?
+        render :nothing => true
+      else
+        redirect_to [:admin, @photo]
+      end
     else
       render :action => "edit"
     end

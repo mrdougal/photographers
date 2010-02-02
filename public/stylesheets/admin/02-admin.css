@@ -305,3 +305,12 @@ a img.uploaded:hover {
 	-moz-border-radius: 10px;
   	-webkit-border-radius: 10px;
 }
+
+.photo_set {
+	padding-right: 10px;
+	padding-bottom: 10px;
+	display: block;
+	float: left;
+	margin-bottom: 10px;
+	margin-right: 10px;
+}

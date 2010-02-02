@@ -3,20 +3,50 @@
 
 
 <% @photo_sets.each do |set| %>
-	<h2><%= link_to set, edit_admin_photo_set_path(set), :rel => "#overlay" %></h2>
+
+
+	<% content_tag_for :span, set, { :class => "photo_set" } do  %>
 	
-	<% set.photos.each do |photo| %>
-	    <% link_to edit_admin_photo_path(photo.permalink), { :rel => "#overlay" } do %>
-			<%= image_tag photo.url(:thumb), { :class => "uploaded" } %>
-		<% end %>
+	
+		<h2><%= link_to set, edit_admin_photo_set_path(set), :rel => "#overlay" %></h2>
+			
+		<div class="options">
+			<%= link_to "Upload a new photo", new_admin_photo_path, { 
+				:class => 'new', 
+				:accesskey => 'n',
+				:rel => '#overlay' } unless controller.action_name == 'new' %>
+		</div>
+		
+		<div class="photo_set_photos">
+			
+			<% set.photos.each do |photo| %>
+			    <% link_to edit_admin_photo_path(photo.permalink), { :rel => "#overlay" } do %>
+					<%= image_tag photo.url(:thumb), { :class => "uploaded" } %>
+				<% end %>
+			<% end %>
+		</div>
+		
+		
 	<% end %>
+
 <% end %>
 
 <%= will_paginate @photo_sets %>
 
-
-<%= render :partial => 'crud' %>
-
 <div id="overlay">
 	<div class="overlay-content"></div>
 </div>
+
+
+
+
+
+<% content_for :options do %>
+
+	<%= link_to "Create a new set", new_admin_photo_set_path, { 
+		:class => 'new', 
+		:accesskey => 'n',
+		:rel => '#overlay' } %>
+
+<% end %>
+

@@ -2,6 +2,7 @@ class AdminController < ApplicationController
 
   layout 'admin'
   before_filter :require_user
+  before_filter :set_ajax_format
 
   helper_method :logged_in?, :current_user_session, :current_user
   
@@ -13,8 +14,14 @@ class AdminController < ApplicationController
     render :template => 'admin/shared/rescues/not_found', :status => 404 
   end
 
+  def set_ajax_format
+    
+    request.format = :ajax if request.xhr?
+    
+  end
 
   private
+  
   
   # AUTHLOGIC METHODS
   
