@@ -1,1 +1,12 @@
-Sets go in here
+<% title "Sets #{pagination_title @photo_sets}" %>
+
+
+
+<% @photo_sets.each do |set| %>
+    <% link_to admin_photo_set_path(set) do %>
+		<%= set %>
+	<% end %>
+<% end %>
+
+
+<%= will_paginate @photo_sets %>

@@ -1,9 +1,3 @@
 <% title "New set" %>
 
-
-<% semantic_form_for [:admin, @photo_set] do |f| %>
-	
-	<%= f.inputs %>
-	<%= f.buttons %>
-	
-<% end %>
+<%= render :partial => 'form' %>
