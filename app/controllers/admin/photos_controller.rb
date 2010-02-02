@@ -5,7 +5,7 @@ class Admin::PhotosController < AdminController
  
   # GET /photos
   def index
-    @photo_sets = PhotoSet.all #.paginate :all, :page => params[:page]
+    @photo_sets = PhotoSet.paginate :all, :page => params[:page]
   end
 
   # GET /photos/1
