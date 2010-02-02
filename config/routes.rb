@@ -64,6 +64,7 @@ ActionController::Routing::Routes.draw do |map|
   map.namespace :admin do |admin|
 
     admin.resource :user_sessions, :except => [:new, :destroy]
+    admin.resources :photo_sets
     admin.resources :photos
 
   end

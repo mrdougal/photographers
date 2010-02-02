@@ -7,6 +7,7 @@ require 'spec/rails'
 
 # Factories of our models
 require File.dirname(__FILE__) + "/factories"
+require 'authlogic/test_case'
 
 # Uncomment the next line to use webrat's matchers
 #require 'webrat/integrations/rspec-rails'
