@@ -1,11 +1,5 @@
 <% title @photo %>
 
-<%= image_tag @photo.file.url(:large), { :class => "uploaded" } %>
-
-<div class="attributes">
-	
-	<%= simple_format @photo.tag_list.to_sentence %>
-	<%= simple_format @photo.description %>
-</div>
+<%= render :partial => 'show' %>
 
 <%= render :partial => 'crud' %>

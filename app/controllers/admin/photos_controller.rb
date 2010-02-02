@@ -5,20 +5,28 @@ class Admin::PhotosController < AdminController
  
   # GET /photos
   def index
-    @photos = Photo.paginate :all, :page => params[:page]
+    @photo_sets = PhotoSet.all #.paginate :all, :page => params[:page]
   end
 
   # GET /photos/1
   def show
+    
+    render :partial => 'show' if request.xhr?
+    
   end
 
   # GET /photos/new
   def new
     @photo = Photo.new
+    render :partial => 'form' if request.xhr?
+    
   end
 
   # GET /photos/1/edit
   def edit
+    
+    render :partial => 'form' if request.xhr?
+    
   end
 
   # POST /photos

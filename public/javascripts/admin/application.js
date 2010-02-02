@@ -6,6 +6,8 @@ $(document).ready(function() {
 	attach_confirmation_to_public_links();
 	highlight_flash();
 
+	bind_ajax_links();
+
 });
 
 
@@ -25,6 +27,28 @@ function attach_confirmation_to_public_links () {
 			};
 		});
 	})
+}
+
+function bind_ajax_links () {
+
+	$('a[rel]').overlay({	
+
+		expose: {
+			color: '#000',
+			opacity: 0.5
+		},
+		// effect: 'apple',
+		
+		onBeforeLoad: function () {
+			
+			// grab wrapper element inside content
+			var wrap = this.getContent().find(".contentWrap");
+
+			// load the page specified in the trigger
+			wrap.load(this.getTrigger().attr("href"));		}
+		
+	});
+	
 }
 
 function highlight_flash () {

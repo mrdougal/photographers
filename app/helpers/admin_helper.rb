@@ -11,8 +11,6 @@ module AdminHelper
   end 
   
   def admin_current_or_active_class(url)
-    
-    # return 'current' if request.path == url
     'current' if request.path =~ Regexp.new("#{url}/*")
   end 
   

@@ -2,7 +2,9 @@ class PhotosController < ApplicationController
 
   # get /photos
   def index
-    @photos = Photo.paginate :all, :page => params[:page]
+    
+    @photo_sets = PhotoSet.all
+    # @photos = Photo.paginate :all, :page => params[:page]
   end
 
   # get /photos/:permalink

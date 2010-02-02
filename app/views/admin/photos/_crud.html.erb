@@ -4,7 +4,8 @@
                       
 	<%= link_to 'Upload a new photo', new_admin_photo_path, { 
 		:class => 'new', 
-		:accesskey => 'n' } unless controller.action_name == 'new' %>
+		:accesskey => 'n',
+		:rel => '#overlay' } unless controller.action_name == 'new' %>
                       
                       
 	<% if @photo && !@photo.new_record? %>

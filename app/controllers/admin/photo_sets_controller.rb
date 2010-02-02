@@ -26,7 +26,11 @@ class Admin::PhotoSetsController < AdminController
   end
 
   def show
-    
+    render :partial => 'show' if request.xhr?
+  end
+  
+  def edit
+    render :partial => 'form' if request.xhr?
   end
   
   def update

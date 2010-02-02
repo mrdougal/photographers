@@ -297,3 +297,9 @@ img.uploaded {
 a img.uploaded:hover {
 	border: 3px solid #00c1ec;
 }
+
+#overlay {
+	background-color: #fff;
+	padding: 20px;
+	width: 70%;
+}
