@@ -10,6 +10,12 @@ class PhotosController < ApplicationController
     @photo = Photo.find_by_permalink! params[:permalink]
   end
   
+  # get /photos/tagged
+  def tags
+    # Should return a tag cloud
+    return not_found
+  end
+  
   # get /photos/tagged/:tag
   def tagged
     
@@ -23,14 +29,21 @@ class PhotosController < ApplicationController
     return render 'tagged_empty' if @photos.empty?
   end
   
+  # get /photos/sets
+  def sets
+    
+    @sets = PhotoSet.paginate :all, :page => params[:page]
+    return not_found if @sets.empty?
+  end
+  
   # get /photos/sets/:permalink
   def set
     
     # Clear out any excess whitespace
-    @set = params[:permalink].rstrip
+    @set = PhotoSet.find_by_permalink! params[:permalink].rstrip
+    @photos = @set.photos
     
-    # We don't support this just now
-    return render 'set_empty'
+    return render 'set_empty' if @photos.empty?
     
   end
 

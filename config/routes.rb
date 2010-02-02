@@ -34,10 +34,16 @@ ActionController::Routing::Routes.draw do |map|
     photo.photos_with_pages 'photos/page/:page', :action => "index" 
     photo.photos 'photos', :action => "index"
 
+    # Tags
     photo.photos_tagged_with_pages 'photos/tagged/:tag/page/:page', :action => "tagged" 
     photo.photos_tagged 'photos/tagged/:tag', :action => "tagged" 
+    photo.photos_tags 'photos/tagged', :action => "tags" 
+
+    # Sets
+    photo.photo_set 'photos/sets/:permalink', :action => "set" 
+    photo.photo_sets_with_pages 'photos/sets/page/:page', :action => "sets" 
+    photo.photo_sets 'photos/sets', :action => "sets" 
     
-    photo.photo_sets 'photos/sets/:permalink', :action => "set" 
     photo.photo 'photos/:permalink', :action => "show"
     
   end 

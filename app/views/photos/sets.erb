@@ -1,0 +1,10 @@
+<% title "Photo sets #{pagination_title @sets}" %>
+
+<%- @sets.each do |set| -%>
+	<%- link_to set, :title => "#{set}" do -%>
+		<%#= image_tag photo.url(:tiny), { :class => "uploaded" } %>
+		<%= set %>
+	<%- end -%>
+<%- end -%>
+
+<%= will_paginate @sets %>

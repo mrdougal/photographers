@@ -1,9 +1,6 @@
-<% title "Photos in #{@set}" %>
+<% title @set %>
 
 
+<h1><%= @set %></h1>
 
-<% @photos.each do |photo| %>
-    <% link_to photo do %>
-		<%= image_tag photo.url(:thumb), { :class => "uploaded" } %>
-	<% end %>
-<% end %>
+<%= render :partial => 'slideshow' %>

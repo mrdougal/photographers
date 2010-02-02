@@ -16,12 +16,16 @@ describe PhotosController do
       end
       
       describe "tagged" do
-        
-        it "recognises and generates params" do
+
+        it "recognises and generates params for tags" do
+          { :get => "/photos/tagged" }.should route_to(:controller => "photos", :action => "tags" )
+        end
+
+        it "recognises and generates params for tagged" do
           { :get => "/photos/tagged/cheese" }.should route_to(:controller => "photos", :action => "tagged", :tag => "cheese" )
         end
         
-        it "recognises and generate params with pagination" do
+        it "recognises and generate params for tagged with pagination" do
           { :get => "/photos/tagged/cheese/page/2" }.should route_to( :controller => "photos", 
                                                                       :action => "tagged", 
                                                                       :tag => "cheese", 
@@ -29,14 +33,28 @@ describe PhotosController do
         end
       end
 
+      describe "sets" do
+        
+        it "recognised and generates params for #sets" do
+          { :get => "/photos/sets" }.should route_to(:controller => "photos", :action => "sets" )
+        end
 
-      it "recognises and generate params for #sets" do
-        { :get => "/photos/sets/bacon" }.should route_to(:controller => "photos", :action => "set", :permalink => "bacon" )
+        it "recognised and generates params for #sets with pagination" do
+          { :get => "/photos/sets/page/2" }.should route_to(:controller => "photos", :action => "sets", :page => "2" )
+        end
+
+        
+        it "recognises and generate params for #set" do
+          { :get => "/photos/sets/bacon" }.should route_to(:controller => "photos", :action => "set", :permalink => "bacon" )
+        end
       end
-      it "recognises and generates params for #photo" do
-        { :get => "/photos/ham" }.should route_to(:controller => "photos", :action => "show", :permalink => "ham" )
+
+      describe "show" do
+        
+        it "recognises and generates params for #photo" do
+          { :get => "/photos/ham" }.should route_to(:controller => "photos", :action => "show", :permalink => "ham" )
+        end
       end
-    
 
   end
 end
