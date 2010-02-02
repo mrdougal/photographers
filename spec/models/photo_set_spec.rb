@@ -16,6 +16,14 @@ describe PhotoSet do
     @set.permalink.should_not be_blank
   end
   
+  it "should contain the set's name when converted to a string" do
+    @set.to_s.should =~ /#{@set.name}/
+  end
+
+  it "should return the permalink from to_param" do
+    @set.to_param.should == @set.permalink
+  end
+  
   it "should respond to photos" do
     @set.should respond_to('photos')
   end
