@@ -9,7 +9,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100127061002) do
+ActiveRecord::Schema.define(:version => 20100202010432) do
+
+  create_table "photo_sets", :force => true do |t|
+    t.string   "name"
+    t.string   "permalink"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "photo_sets", ["permalink"], :name => "index_photo_sets_on_permalink"
 
   create_table "photos", :force => true do |t|
     t.string   "name"
@@ -21,6 +31,8 @@ ActiveRecord::Schema.define(:version => 20100127061002) do
     t.datetime "file_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "set_id"
+    t.integer  "photo_set_id"
   end
 
   add_index "photos", ["permalink"], :name => "index_photos_on_permalink"

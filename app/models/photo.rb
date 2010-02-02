@@ -36,6 +36,8 @@ class Photo < ActiveRecord::Base
   default_scope :order => "created_at desc"
   
   
+  belongs_to :photo_set
+  
   
   def to_s
     name
