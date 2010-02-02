@@ -34,18 +34,18 @@ function bind_ajax_links () {
 	$('a[rel]').overlay({	
 
 		expose: {
-			color: '#000',
+			color: '#919191',
 			opacity: 0.5
 		},
-		// effect: 'apple',
 		
 		onBeforeLoad: function () {
 			
 			// grab wrapper element inside content
-			var wrap = this.getContent().find(".contentWrap");
+			var wrap = this.getContent().find(".overlay-content");
 
 			// load the page specified in the trigger
-			wrap.load(this.getTrigger().attr("href"));		}
+			wrap.load(this.getTrigger().attr("href"));
+		}
 		
 	});
 	

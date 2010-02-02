@@ -302,4 +302,6 @@ a img.uploaded:hover {
 	background-color: #fff;
 	padding: 20px;
 	width: 70%;
+	-moz-border-radius: 10px;
+  	-webkit-border-radius: 10px;
 }

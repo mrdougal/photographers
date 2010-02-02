@@ -1,15 +1,22 @@
-<% title "Photos #{pagination_title @photos}" %>
+<% title "Photos #{pagination_title @photo_sets}" %>
 
 
 
-<% @photos.each do |photo| %>
-    <% link_to edit_admin_photo_path(photo.permalink) do %>
-		<%= image_tag photo.url(:thumb), { :class => "uploaded" } %>
+<% @photo_sets.each do |set| %>
+	<h2><%= link_to set, edit_admin_photo_set_path(set), :rel => "#overlay" %></h2>
+	
+	<% set.photos.each do |photo| %>
+	    <% link_to edit_admin_photo_path(photo.permalink), { :rel => "#overlay" } do %>
+			<%= image_tag photo.url(:thumb), { :class => "uploaded" } %>
+		<% end %>
 	<% end %>
 <% end %>
 
-
-<%= will_paginate @photos %>
+<%= will_paginate @photo_sets %>
 
 
 <%= render :partial => 'crud' %>
+
+<div id="overlay">
+	<div class="overlay-content"></div>
+</div>
