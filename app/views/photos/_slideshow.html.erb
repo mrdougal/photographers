@@ -3,7 +3,7 @@
 	<!-- wrapper element for the large image -->
 	<div id="image_wrap">
 
-		<% link_to '#', :title => "View photo" do |l| %>
+		<% link_to '#', :title => "View photo" do %>
 		<!-- Initially the image is a simple 1x1 pixel transparent GIF -->
 		<%= image_tag 'shim.gif', { :class => "uploaded" } %>
 		<% end %>
@@ -20,7 +20,7 @@
 		<!-- root element for the items -->
 		<div class="items">
 			<%- @photos.each do |photo| -%>
-				<%- link_to photo, :title => "#{photo}" do |l| -%>
+				<%- link_to photo, :title => "#{photo}" do -%>
 					<%= image_tag photo.url(:tiny), { :class => "uploaded" } %>
 				<%- end -%>
 			<%- end -%>
