@@ -3,7 +3,7 @@
 
 
 <div id="photos">
-<% @photos.each do |set| %>
+<% @photos.each do |photo| %>
 <% link_to [:admin, photo], { :rel => "#overlay" } do %>
 <%= image_tag photo.url(:thumb), { :class => "uploaded" } %>
 <% end %>
