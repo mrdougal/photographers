@@ -77,7 +77,7 @@ class Admin::PhotosController < AdminController
   
   def find_photo
     
-    @photo = Photo.find_by_permalink!(params[:id])
+    @photo = Photo.find(params[:id])
     
   end
 end
