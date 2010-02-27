@@ -1,5 +1,14 @@
 # Be sure to restart your server when you modify this file.
 
+
+# Add in our flash session cookie middleware into the stack
+ActionController::Dispatcher.middleware.insert_before( 
+  ActionController::Session::CookieStore, 
+  FlashSessionCookieMiddleware, 
+  ActionController::Base.session_options[:key]
+)
+
+
 # Your secret key for verifying cookie session data integrity.
 # If you change this key, all old sessions will become invalid!
 # Make sure the secret is at least 30 characters and all random, 
