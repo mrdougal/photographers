@@ -22,6 +22,7 @@ Rails::Initializer.run do |config|
   
   # For easy forms
   config.gem 'formtastic',  :version => '~> 0.9.7' 
+  config.gem 'validation_reflection'
   
   # For permalinks
   config.gem 'stringex'
