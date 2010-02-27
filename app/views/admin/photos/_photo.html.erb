@@ -1,4 +1,4 @@
 <!-- Link to the edit properties on the image -->
 <% link_to edit_admin_photo_path(photo), { :rel => "#overlay" } do %>
-	<%= image_tag photo.url(:thumb), { :class => "uploaded" } %>
+	<%= image_tag photo.url(:thumb), { :class => "uploaded", :rating => photo.rating } %>
 <% end %>
