@@ -9,10 +9,11 @@ class Photo < ActiveRecord::Base
                            :url => "/uploaded/photos/:id/:style/:filename", 
                            :default_url => "/images/missing/:attachment/:style.png",
                            :whiny => true,
-                           :styles => { :large =>  ["600x400", :png],
-                                        :slideshow => ["800#x450#", :png], 
-                                        :thumb =>  ["80x80#", :png], 
-                                        :tiny =>   ["40x40#", :png] }
+                           :styles => { :slideshow => ["800#x450#", :png], 
+                                        :medium    => ["160x160#", :png],
+                                        :thumb     => ["80x80#", :png], 
+                                        :tiny      => ["40x40#", :png] }
+
                             
   
   # validates_attachment_content_type :file, {
@@ -45,6 +46,18 @@ class Photo < ActiveRecord::Base
     file.url style, false
   end
   
+  
+  # Don't call this in production. As this is an expensive call to make
+  def self.recreate_thumbs
+    
+    self.find_in_batches( :batch_size => 10 ) do |group|
+      group.each do |photo| 
+        puts "Recreating thumbnails for #{photo}"
+        photo.file.reprocess!
+      end
+    end
+    
+  end
 
   private
   
