@@ -49,9 +49,9 @@ class Photo < ActiveRecord::Base
     file_file_name
   end
   
-  # def url style
-  #   file.url style, false
-  # end
+  def url style
+    file.url style, false
+  end
   
   # def to_param
   #   permalink
