@@ -75,61 +75,42 @@ describe Photo do
         @photo.tags.should_not be_empty
       end
     end
+    
+    
+    context "with categories" do
+      
+      before(:each) do
+        @photo.update_attribute :category_list, 'Cheese, Ham'
+      end
+      
+      it "should have categories" do
+        @photo.categories.should_not be_empty
+      end
+    end
+    
+    
+    context "with sets" do
+      
+      before(:each) do
+        @photo.update_attribute :set_list, 'Cheese, Ham'
+      end
+      
+      it "should have sets" do
+        @photo.sets.should_not be_empty
+      end
+    end
+    
   end
 
   describe "name" do
     
-    describe "without setting the name" do
-      
-      it "should have it's name related to the filename" do
-        @photo.name.should =~ /Portrait/
-      end
-
-      it "should not be blank" do
-        @photo.name.should_not be_blank
-      end
-      
-      it "should have a permalink" do
-        @photo.permalink.should =~ /portrait/
-      end
-      
+    it "should contains it's filename" do
+      @photo.name.should =~ /#{@photo.file_file_name}/
     end
-    
-    describe "with setting the name" do
-      
-      before(:all) do
-        @photo_name = Factory :photo, :name => "Cheese and Ham" 
-      end
-      
-      after(:all) do
-        @photo_name.destroy
-      end
-      
-      it "should preserve the name" do
-        @photo_name.name.should == 'Cheese and Ham'
-      end
-      
-      it "should have a permalink" do
-        @photo_name.permalink.should =~ /cheese-and-ham/
-      end
 
-      it "should not be blank" do
-        @photo_name.name.should_not be_blank
-      end
-      
-      # context "updating the file" do
-      #   before(:each) do
-      #     @photo.file = File.new(File.join(fixture_path, 'photos','mugshot.jpg'))
-      #   end
-      #   
-      #   it "should preserve the name" do
-      #     @photo.name.should == 'Cheese and Ham'
-      #   end
-      # end
-      
+    it "should not be blank" do
+      @photo.name.should_not be_blank
     end
-    
-    
   end
 
 

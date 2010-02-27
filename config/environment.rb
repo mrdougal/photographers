@@ -26,7 +26,7 @@ Rails::Initializer.run do |config|
   # For permalinks
   config.gem 'stringex'
   
-  # For tagging pages
+  # For tagging photos
   config.gem "acts-as-taggable-on"
 
   # Only load the plugins named here, in the order given (default is alphabetical).

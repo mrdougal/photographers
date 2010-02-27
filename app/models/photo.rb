@@ -22,13 +22,15 @@ class Photo < ActiveRecord::Base
 
   validates_attachment_presence :file, :message => "You need to upload a file"
 
-  # This needs to be placed before acts_as_url as it expects their to be a name.
-  before_validation :generate_name_if_required
+  # # This needs to be placed before acts_as_url as it expects their to be a name.
+  # before_validation :generate_name_if_required
 
   # For permalinks on the photo
-  acts_as_url :name, :url_attribute => :permalink, :sync_url => true
+  # acts_as_url :name, :url_attribute => :permalink, :sync_url => true
   
   # Taggings
+  acts_as_taggable_on :categories
+  acts_as_taggable_on :sets
   acts_as_taggable_on :tags
   
   
@@ -36,33 +38,37 @@ class Photo < ActiveRecord::Base
   default_scope :order => "created_at desc"
   
   
-  belongs_to :photo_set
+  # belongs_to :photo_set
   
   
   def to_s
-    name
+    file_file_name
   end
   
-  def url style
-    file.url style, false
+  def name
+    file_file_name
   end
   
-  def to_param
-    permalink
-  end
+  # def url style
+  #   file.url style, false
+  # end
+  
+  # def to_param
+  #   permalink
+  # end
   
   
   private
   
-  def generate_name_if_required
-    
-    return unless self.name.blank?
-    return if self.file_file_name.blank?
-    
-    # We humanise the basename of the filename. (.* removes the extension)
-    self[:name] = File.basename(self.file_file_name,'.*').gsub(/-/,' ').humanize
-    
-  end
+  # def generate_name_if_required
+  #   
+  #   return unless self.name.blank?
+  #   return if self.file_file_name.blank?
+  #   
+  #   # We humanise the basename of the filename. (.* removes the extension)
+  #   self[:name] = File.basename(self.file_file_name,'.*').gsub(/-/,' ').humanize
+  #   
+  # end
   
   
 end

@@ -2,10 +2,6 @@ class CreatePhotos < ActiveRecord::Migration
   def self.up
     create_table :photos do |t|
 
-      t.string :name
-      t.string :permalink
-      t.text :description
-
       # Paperclip columns
       t.string    :file_file_name
       t.string    :file_content_type
@@ -15,12 +11,9 @@ class CreatePhotos < ActiveRecord::Migration
       t.timestamps
     end
     
-    add_index :photos, :permalink
-    
   end
 
   def self.down
-    remove_index :photos, :permalink
 
     drop_table :photos
   end
