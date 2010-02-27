@@ -1,0 +1,29 @@
+<% 
+	title "Users #{pagination_title @users}"
+ %>
+
+<table class="list">
+	
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Email</th>
+		</tr>
+	</thead>
+	
+	<tbody>
+		<% @users.each do |user| %>
+		<tr>
+			<td>
+				<%= link_to user, edit_admin_user_path(user) %>
+			</td>
+			<td>
+				<%= mail_to user.email, user.email, { :title => "Send an email to #{user}", :class => "email" } %>
+			</td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+
+
+<%= render :partial => 'admin/users/inc/crud' %>

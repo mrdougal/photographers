@@ -94,6 +94,13 @@ a.zoom {
 	padding-bottom: 1em;
 }
 
+a.email {
+	background: url(/images/admin/icons/email.png) no-repeat left center;
+	padding-left: 20px;
+	padding-top: 1em;
+	padding-bottom: 1em;
+}
+
 /* @end */
 
 /* @group flash */

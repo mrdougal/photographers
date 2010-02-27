@@ -1,0 +1,7 @@
+<% 
+	title @user
+ %>
+
+<h1><%= @user %></h1>
+
+<%= mail_to @user.email, @user.email, { :title => "Send an email to #{@user}", :class => "email" } %>
