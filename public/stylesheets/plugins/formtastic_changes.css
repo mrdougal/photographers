@@ -50,11 +50,19 @@ form.formtastic .large input {
 form.formtastic .string input {
 	border-style: none;
 	border-bottom: 2px dashed #cacaca;
+	padding-bottom: 5px;
+}
+
+form.formtastic .password input {
+	border-style: none;
+	border-bottom: 2px dashed #cacaca;
+	padding-bottom: 5px;
 }
 
 form.formtastic .text textarea {
 	border-style: none;
 	border-bottom: 2px dashed #cacaca;
+	padding-bottom: 5px;
 }
 
 /* @group send */
