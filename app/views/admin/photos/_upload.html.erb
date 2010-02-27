@@ -23,17 +23,8 @@ $(document).ready(function(){
 		'cancelImg' : '/images/icons/general/cancel.png',
 		'onComplete' : function(event, queueID, fileObj, response){
 
-			// We need to convert 'response' from a string into a JSON object
-			var response = JSON.parse(response);
-
-			var img = new Image();
-			img.className = 'uploaded';
-			img.id = 'img_'+response["id"];
-			img.src = response["thumbnails"]["thumb"];
-
 			// Add the new photo to the photos div
-			$('#photos').prepend(img);
-			$('#'+img.id).fadeIn('slow');
+			$('#photos').prepend(response);
 
 		}
 	})

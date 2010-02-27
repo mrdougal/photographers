@@ -46,15 +46,17 @@ class Admin::PhotosController < AdminController
         render :nothing => true
 
       elsif uploadify? 
+
+        render :partial => 'photo'
         
         # Uploaded by flash uploadify        
-        render :json => {  :id => @photo.id,
-                           :thumbnails => {
-                             :medium => @photo.file.url(:medium), 
-                             :thumb  => @photo.file.url(:thumb),
-                             :tiny   => @photo.file.url(:tiny)  
-                           }
-                         }
+        # render :json => {  :id => @photo.id,
+        #                    :thumbnails => {
+        #                      :medium => @photo.file.url(:medium), 
+        #                      :thumb  => @photo.file.url(:thumb),
+        #                      :tiny   => @photo.file.url(:tiny)  
+        #                    }
+        #                  }
       else
         redirect_to [:admin, @photo]
       end
