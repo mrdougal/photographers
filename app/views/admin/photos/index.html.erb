@@ -24,10 +24,14 @@
 
 <% content_for :options do %>
 
-	<%= link_to "Create a new photo", new_admin_photo_path, { 
-		:class => 'new', 
-		:accesskey => 'n',
-		:rel => '#overlay' } %>
+	<%= render 'upload' %>
+
+	<noscript>
+		<%= link_to "Create a new photo", new_admin_photo_path, { 
+			:class => 'new', 
+			:accesskey => 'n',
+			:rel => '#overlay' } %>
+	</noscript>
 
 <% end %>
 

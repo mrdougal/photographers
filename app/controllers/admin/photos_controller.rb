@@ -5,6 +5,9 @@ class Admin::PhotosController < AdminController
  
   # GET /photos
   def index
+    
+    # For the upload form on the side of the page
+    @photo = Photo.new
     @photos = Photo.paginate :all, :page => params[:page]
   end
 

@@ -48,20 +48,10 @@ $(document).ready(function(){
 
 <!-- We need a multipart form as we're uploading images -->
 
-<% semantic_form_for [:admin, @photo], :html => { :multipart => true } do |f| %>  
+<% form_for [:admin, @photo], :html => { :multipart => true } do |f| %>  
 
-	<% f.inputs do %>
-
-		<%= f.input :file, :as => :file, 
-						   :hint => (image_tag @photo.file.url(:tiny), { :class => "uploaded" } if @photo.file?) %>
-
-		<%#= f.input :category_list, :as => :string %>
-		<%#= f.input :set_list, :as => :string %>
-		<%#= f.input :tag_list, :as => :string %>
-		
-		<noscript><%= f.buttons %></noscript>
-	
-	<% end %>
+	<%= f.file_field :file %>
+	<noscript><%= f.submit %></noscript>
 
 	
 <% end %>
