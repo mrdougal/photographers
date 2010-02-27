@@ -4,7 +4,7 @@
 
 <div id="photos">
 <% @photos.each do |photo| %>
-<% link_to [:admin, photo], { :rel => "#overlay" } do %>
+<% link_to edit_admin_photo_path(photo), { :rel => "#overlay" } do %>
 <%= image_tag photo.url(:thumb), { :class => "uploaded" } %>
 <% end %>
 <% end %>
