@@ -6,8 +6,10 @@ $(document).ready(function() {
 	attach_confirmation_to_public_links();
 	// bind_overlay_links();
 
-	highlight_flash();
 
+	// Fade the flash, and then hide it
+	$('#flash .flash').fadeTo(2000,0.1).hide('slow');
+	
 });
 
 
@@ -51,10 +53,3 @@ function bind_overlay_links () {
 	
 }
 
-
-
-function highlight_flash () {
-	
-	// Find and highlight the flash
-	$('#flash .flash').effect('highlight', {}, 1000);
-}
