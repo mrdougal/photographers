@@ -2,7 +2,7 @@ class Photo < ActiveRecord::Base
   
   # Pagination settings
   cattr_accessor :per_page
-  @@per_page = 30
+  @@per_page = 50
   
   # Paperclip settings
   has_attached_file :file, :convert_options => { :all => "-channel RGB" }, 
@@ -32,7 +32,9 @@ class Photo < ActiveRecord::Base
   # By default order the photos by when they were created
   default_scope :order => "created_at desc"
   
-
+  # The list of top photos
+  named_scope :best, :order => "rating desc", :conditions => "rating == 5" 
+  
   
   def to_s
     file_file_name

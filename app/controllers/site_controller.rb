@@ -2,7 +2,7 @@ class SiteController < ApplicationController
 
   # get /
   def homepage
-    @photos = Photo.all
+    @photos = Photo.best
   end
 
   def about
