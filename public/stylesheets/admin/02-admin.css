@@ -4,8 +4,14 @@
 	width: 90%;
 }
 
+#nav a.current {
+	color: #00a0c2;
+}
+
 a {
 	color: #00a0c2;
+	text-decoration: none;
+
 }
 
 /* @group top */
@@ -200,16 +206,16 @@ a.toggle-on {
 /* Dragging and dropping */
 
 .sortable .drop_hover {
-    	background: url(/images/admin/icons/drag.png) no-repeat left;
+	background: url(/images/admin/icons/drag.png) no-repeat left;
 }
 
 .sortable .drop_top {
 	background-position: 10px top;
 }
-    .sortable .drop_bottom {
+.sortable .drop_bottom {
 	background-position: 10px bottom;
 }
-    .sortable .drop_insert {
+.sortable .drop_insert {
 	background-position: 20px 100%;
 }
 
@@ -303,7 +309,7 @@ a img.uploaded:hover {
 	padding: 20px;
 	width: 70%;
 	-moz-border-radius: 10px;
-  	-webkit-border-radius: 10px;
+	-webkit-border-radius: 10px;
 }
 
 .photo_set {
@@ -314,3 +320,35 @@ a img.uploaded:hover {
 	margin-bottom: 10px;
 	margin-right: 10px;
 }
+
+/* @group category */
+
+.category {
+	margin-bottom: 20px;
+}
+
+.title {
+	display: block;
+	margin-bottom: 10px;
+}
+
+.title .description {
+	color: #919191;
+	font-size: 10pt;
+}
+
+.photo_set {
+	clear: both;
+	display: block;
+}
+
+.inline {
+	display: inline;
+}
+
+.base {
+	padding-top: 10px;
+	padding-bottom: 20px;
+}
+
+/* @end */

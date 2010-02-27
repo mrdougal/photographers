@@ -96,6 +96,7 @@ html, body {
 
 #nav a.current {
 	background-color: #fff;
+	font-weight: bold;
 	font-size: 14pt;
 	margin-bottom: -10px;
 	margin-top: -5px;
