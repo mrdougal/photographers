@@ -1,0 +1,46 @@
+/* @override http://shinephoto.local/stylesheets/plugins/uploadify.css?1267267177 */
+
+.uploadifyQueue {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-size: 100%;
+}
+
+.uploadifyQueueItem {
+	border-style: none;
+	padding-left: 20px;
+}
+.uploadifyError {
+	background-color: #ff0020;
+	border-style: none;
+}
+.uploadifyQueueItem .cancel {
+	display: inline;
+	margin-left: -20px;
+	margin-right: 10px;
+}
+
+.uploadifyQueueItem .fileName {
+	font-weight: normal;
+	font-style: normal;
+	color: #919191;
+}
+.uploadifyProgress {
+	width: 100%;
+	border-style: none;
+	clear: both;
+	display: block;
+	margin-bottom: 10px;
+	margin-top: 5px;
+	background-color: #cacaca;
+}
+
+.percentage {
+	clear: both;
+	display: block;
+}
+.uploadifyProgressBar {
+	background-color: #515151;
+	width: 1px;
+	height: 5px;
+}
