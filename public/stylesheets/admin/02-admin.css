@@ -87,6 +87,13 @@ a.www {
 	padding-bottom: 1em;
 }
 
+a.zoom {
+	background: url(/images/admin/icons/zoom.png) no-repeat left center;
+	padding-left: 20px;
+	padding-top: 1em;
+	padding-bottom: 1em;
+}
+
 /* @end */
 
 /* @group flash */
