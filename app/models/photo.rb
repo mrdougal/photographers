@@ -15,19 +15,13 @@ class Photo < ActiveRecord::Base
                                         :tiny =>   ["40x40#", :png] }
                             
   
-  validates_attachment_content_type :file, {
-    :content_type => %r{image}, 
-    :message => "Image's only please" 
-  }             
+  # validates_attachment_content_type :file, {
+  #   :content_type => %r{image}, 
+  #   :message => "Image's only please" 
+  # }             
 
   validates_attachment_presence :file, :message => "You need to upload a file"
 
-  # # This needs to be placed before acts_as_url as it expects their to be a name.
-  # before_validation :generate_name_if_required
-
-  # For permalinks on the photo
-  # acts_as_url :name, :url_attribute => :permalink, :sync_url => true
-  
   # Taggings
   acts_as_taggable_on :categories
   acts_as_taggable_on :sets
@@ -37,9 +31,7 @@ class Photo < ActiveRecord::Base
   # By default order the photos by when they were created
   default_scope :order => "created_at desc"
   
-  
-  # belongs_to :photo_set
-  
+
   
   def to_s
     file_file_name
@@ -53,11 +45,7 @@ class Photo < ActiveRecord::Base
     file.url style, false
   end
   
-  # def to_param
-  #   permalink
-  # end
-  
-  
+
   private
   
   # def generate_name_if_required

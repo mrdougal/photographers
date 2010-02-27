@@ -1,3 +1,47 @@
+<%- session_key_name = ActionController::Base.session_options[:key] -%>
+<% content_for :javascript do %>
+
+$(document).ready(function(){
+
+	var session_key = '<%= session_key_name %>=';
+		session_key += encodeURIComponent('<%= u cookies[session_key_name] %>');
+
+	var user_credentials = 'user_credentials=';
+		user_credentials += encodeURIComponent('<%= u cookies['user_credentials'] %>');
+
+
+	$('#photo_file').uploadify({
+		'uploader' : '/flash/uploadify.swf',
+		'script' : '/admin/photos/?'+session_key,
+		'method' : 'post',
+		'fileDataName' : 'photo[file]',
+		'scriptData' : {
+			'authenticity_token' : encodeURIComponent('<%= u form_authenticity_token if protect_against_forgery? %>')
+		},
+		'multi' : true,
+		'auto' : true,
+		'cancelImg' : '/images/icons/general/cancel.png',
+		'onComplete' : function(event, queueID, fileObj, response){
+
+			// We need to convert 'response' from a string into a JSON object
+			var response = JSON.parse(response);
+
+			var img = new Image();
+			img.className = 'uploaded';
+			img.id = 'img_'+response["id"];
+			img.src = response["thumbnails"]["thumb"];
+
+			// Add the new photo to the photos div
+			$('#photos').prepend(img);
+			$('#'+img.id).fadeIn('slow');
+
+		}
+	})
+
+});
+
+
+<% end %>
 
 
 
@@ -11,9 +55,9 @@
 		<%= f.input :file, :as => :file, 
 						   :hint => (image_tag @photo.file.url(:tiny), { :class => "uploaded" } if @photo.file?) %>
 
-		<%= f.input :category_list, :as => :string %>
-		<%= f.input :set_list, :as => :string %>
-		<%= f.input :tag_list, :as => :string %>
+		<%#= f.input :category_list, :as => :string %>
+		<%#= f.input :set_list, :as => :string %>
+		<%#= f.input :tag_list, :as => :string %>
 		
 		<%= f.buttons %>
 	

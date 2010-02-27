@@ -10,7 +10,7 @@ class FlashSessionCookieMiddleware
   
   def initialize(app, session_key)
     @app = app
-    @session_key = session_key ||= '_nerd_session'
+    @session_key = session_key ||= '_photo_session'
   end
   
   def call(env)

@@ -38,8 +38,20 @@ class Admin::PhotosController < AdminController
     if @photo.save
       flash[:notice] = 'Photo was successfully created.'
       
+      
       if request.xhr?
         render :nothing => true
+
+      elsif uploadify? 
+        
+        # Uploaded by flash uploadify        
+        render :json => {  :id => @photo.id,
+                           :thumbnails => {
+                             :medium => @photo.file.url(:medium), 
+                             :thumb  => @photo.file.url(:thumb),
+                             :tiny   => @photo.file.url(:tiny)  
+                           }
+                         }
       else
         redirect_to [:admin, @photo]
       end
@@ -75,9 +87,11 @@ class Admin::PhotosController < AdminController
   
   private
   
+  def uploadify?
+    request.env['HTTP_USER_AGENT'] =~ /^(Adobe|Shockwave) Flash/
+  end
+  
   def find_photo
-    
     @photo = Photo.find(params[:id])
-    
   end
 end
