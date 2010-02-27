@@ -1,3 +1,5 @@
+/* @override http://shinephoto.local/stylesheets/plugins/formtastic_changes.css?1267256496 */
+
 /* -------------------------------------------------------------------------------------------------
 
 Load this stylesheet after formtastic.css in your layouts to override the CSS to suit your needs.
@@ -77,3 +79,10 @@ form.formtastic .commit input:hover {
 
 /* @end */
 
+
+/*For the photo ratings*/
+
+form.formtastic #photo_rating_input ol li {
+	float: left;
+	margin-right: 10px;
+}form.formtastic #photo_rating_input ol li
