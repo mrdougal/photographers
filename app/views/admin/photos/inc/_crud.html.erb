@@ -2,17 +2,7 @@
 
 <div class="crud">
                       
-	<%= link_to 'Upload a new photo', new_admin_photo_path, { 
-		:class => 'new', 
-		:accesskey => 'n',
-		:rel => '#overlay' } unless controller.action_name == 'new' %>
-                      
-                      
 	<% if @photo && !@photo.new_record? %>
-	                  
-	<%= link_to 'Show', 
-				admin_photo_path(@photo), 
-				{ :class => 'show' } unless controller.action_name == 'show'  %>
 	                  
 	<%= link_to 'Edit', edit_admin_photo_path(@photo), { 
 		:class => 'edit', 
