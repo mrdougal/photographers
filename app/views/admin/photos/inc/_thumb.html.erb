@@ -1,5 +1,4 @@
-<%= image_tag @photo.file.url(:medium), { :class => "uploaded", :rating => @photo.rating } %>
 
-<div class="crud">
-	<%= link_to 'Show fullsize', @photo.file.url, { :class => "zoom" } %>
-</div>
+<% link_to @photo.file.url, { :title => "View fullsize" } do %>
+	<%= image_tag @photo.file.url(:medium), { :class => "uploaded", :rating => @photo.rating } %>
+<% end %>
