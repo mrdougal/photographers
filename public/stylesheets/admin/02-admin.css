@@ -1,9 +1,21 @@
+/* @override 
+	http://shinephoto.local/stylesheets/admin/02-admin.css?1267511171
+	http://shinephoto.local/stylesheets/admin/02-admin.css?1268022679
+	http://shinephoto.local/stylesheets/admin/02-admin.css?1268022762
+*/
+
 .container {
 	width: 90%;
 }
 
 a {
 	color: #00a0c2;
+	text-decoration: none;
+
+}
+
+a:hover {
+	color: #00c1ec;
 	text-decoration: none;
 
 }
@@ -328,20 +340,22 @@ a img.uploaded:hover {
 	-webkit-border-radius: 10px;
 }
 
-.photo_set {
-	padding-right: 10px;
-	padding-bottom: 10px;
-	display: block;
+.group {
 	float: left;
-	margin-bottom: 10px;
-	margin-right: 10px;
+	padding-right: 20px;
+	clear: none;
+	margin-right: 20px;
+	height: 150px;
+	overflow: hidden;
 }
 
 /* @group category */
 
-.category {
+/*.category {
 	margin-bottom: 20px;
-}
+	clear: both;
+	float: left;
+}*/
 
 .title {
 	display: block;
@@ -353,9 +367,15 @@ a img.uploaded:hover {
 	font-size: 10pt;
 }
 
-.photo_set {
+.category .set {
+	margin-left: 20px;
+}
+
+.set {
 	clear: both;
 	display: block;
+	float: left;
+	margin-bottom: 10px;
 }
 
 .inline {
@@ -368,3 +388,38 @@ a img.uploaded:hover {
 }
 
 /* @end */
+
+/* @group heading */
+
+.heading {
+	display: block;
+	clear: both;
+	float: left;
+	margin-bottom: 10px;
+	width: 100%;
+}
+
+.heading h1 {
+	float: left;
+	margin-right: 10px;
+	padding-top: 0;
+}
+
+.heading .new {
+	float: left;
+	margin-left: 10px;
+}
+
+
+
+/* @end */
+
+.note {
+	padding: 10px 10px 10px 20px;
+	background: url(../../images/admin/icons/comment.png) no-repeat 0 10px;
+}
+
+#sets {
+	float: left;
+	width: 100%;
+}
