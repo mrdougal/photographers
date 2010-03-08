@@ -1,0 +1,9 @@
+
+	<div class="group">
+		<h3 class="title">
+			<%= link_to set, admin_category_photo_set_path(category,set) %>
+		</h3>
+		
+		<%= render :partial => 'admin/photos/photo', :collection => set.photos %>
+		
+	</div>

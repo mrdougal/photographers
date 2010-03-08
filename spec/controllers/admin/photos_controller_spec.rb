@@ -9,15 +9,18 @@ describe Admin::PhotosController do
   
   
   before(:all) do
-    @photos = [
-      Factory(:photo, :tag_list => "tasty"),
-      Factory(:photo, :tag_list => "tasty")
-       ]
+    
+    @user = Factory.build(:user)
+    @category = Factory :category, :name => "Wedddings"
+    @set = Factory :photo_set, :name => "Dougal & Amanda", :category => @category 
+    
+    @photos = [ Factory(:photo, :category => @category, :photo_set => @set),
+                Factory(:photo, :category => @category, :photo_set => @set) ]
   end
   
   describe "without logging in" do
     it "should redirect to the login" do
-      get :index
+      get :edit, :id => '1'
       response.should redirect_to login_path
     end
   end
@@ -27,23 +30,7 @@ describe Admin::PhotosController do
     
     before(:each) do
       activate_authlogic
-      UserSession.create Factory.build(:user)
-    end
-    
-    describe "index" do
-    
-      it "should be ok" do
-        get :index
-        response.should be_success
-      end
-    end
-    
-    describe "show" do
-      
-      it "should be successful" do
-        get :show, :id => @photos[1].id
-        response.should be_success
-      end
+      UserSession.create @user
     end
     
     describe "edit" do

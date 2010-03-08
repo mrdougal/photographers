@@ -1,0 +1,38 @@
+<% content_for :sub_heading do %>
+
+	<%= link_to 'Create a new set', new_admin_category_photo_set_path(@category), { 
+		:class => 'new', 
+		:accesskey => 'n',
+		:rel => '#overlay' } unless controller.action_name == 'new' %>
+
+<% end %>
+
+
+<% content_for :options do %>
+
+<div class="crud">
+                      
+                      
+                      
+	<% if @set && !@set.new_record? %>
+	                  
+	<%= link_to 'Show', 
+				admin_category_photo_set_path(@category,@set), 
+				{ :class => 'show' } unless controller.action_name == 'show'  %>
+	                  
+	<%= link_to 'Edit', edit_admin_category_photo_set_path(@category,@set), { 
+		:class => 'edit', 
+		:accesskey => 'e' } unless controller.action_name == 'edit'  %>
+	
+	<%= link_to 'Delete', admin_category_photo_set_path(@category,@set), { 
+		:confirm => 'You sure you want to delete this set?', 
+		:method => :delete ,
+		:class => 'delete', 
+		:accesskey => 'd' } %>
+	<% end %>         
+
+</div>
+ 
+
+<% end %>
+

@@ -1,0 +1,44 @@
+<% title "Photos #{pagination_title @categories}" %>
+
+
+
+<div id="categories">
+	
+	<% @categories.each do |category| %>
+
+		<div class="group">
+			<h2><%= link_to category, admin_category_path(category) %></h2>
+			
+			<ul>
+				<% category.sets.each do |set| %>
+				<li><%= link_to set, [:admin,category,set] %></li>
+				<% end %>
+			</ul>
+			
+		</div>
+		
+	<% end %>
+	
+	<div class="group">
+		
+	<%= link_to 'Create a new category', new_admin_category_path, { 
+		:class => 'new', 
+		:accesskey => 'n',
+		:rel => '#overlay' } %>
+	</div>
+	
+</div>
+
+
+
+<%= will_paginate @categories %>
+
+<% content_for :options do %>
+
+	<%= render :partial => 'admin/photos/inc/sets' if @category %>
+
+
+<% end %>
+
+
+

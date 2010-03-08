@@ -6,6 +6,7 @@ describe Photo do
     @photo = Factory :photo
   end
   
+
   # We need to cleanup after ourselves, overwise the uploads dir gets very messy
   after(:all) do
     @photo.destroy
@@ -14,7 +15,7 @@ describe Photo do
   describe "file" do
     
     before(:each) do
-      @photo = Photo.new(Factory.attributes_for :photo, :file => nil )
+      @photo = Photo.new(Factory.attributes_for :photo, :file => nil)
     end
     
     it "should require a file" do
@@ -52,57 +53,11 @@ describe Photo do
     it "should reject the file" do
       
       @bad_photo.save
-      @bad_photo.should have(1).error_on(:file)
+      @bad_photo.should have_at_least(1).error_on(:file)
     end
   end
   
-  describe "tags" do
-    
-    context "empty" do
-      
-      it "should have any categories" do
-        @photo.tags.should be_empty
-      end
-    end
-    
-    context "with tags" do
-      
-      before(:each) do
-        @photo.update_attribute :tag_list, 'Cheese, Ham'
-      end
-      
-      it "should have tags" do
-        @photo.tags.should_not be_empty
-      end
-    end
-    
-    
-    context "with categories" do
-      
-      before(:each) do
-        @photo.update_attribute :category_list, 'Cheese, Ham'
-      end
-      
-      it "should have categories" do
-        @photo.categories.should_not be_empty
-      end
-    end
-    
-    
-    context "with sets" do
-      
-      before(:each) do
-        @photo.update_attribute :set_list, 'Cheese, Ham'
-      end
-      
-      it "should have sets" do
-        @photo.sets.should_not be_empty
-      end
-    end
-    
-  end
-
-  describe "name" do
+  describe "methods that return it's filename" do
     
     it "should contains it's filename" do
       @photo.name.should =~ /#{@photo.file_file_name}/
@@ -111,7 +66,40 @@ describe Photo do
     it "should not be blank" do
       @photo.name.should_not be_blank
     end
+
+    it "should return it's filename from to_s" do
+      @photo.to_s.should =~ /#{@photo.file_file_name}/
+    end
   end
+  
+  describe "categories" do
+    
+    describe "is a requirement" do
+      
+      before(:each) do
+        @new_photo = Photo.new(Factory.attributes_for :photo, :category => nil )
+      end
+      
+      it "should have errors" do
+        @new_photo.save
+        @new_photo.should have(1).errors_on(:category)
+      end
+    end
+  end
+
+  describe "sets" do
+    
+    # before(:each) do
+    #   @photo.update_attribute :set_list, 'Cheese, Ham'
+    # end
+    # 
+    # it "should have sets" do
+    #   @photo.sets.should_not be_empty
+    # end
+  end
+  
+
+
 
 
 

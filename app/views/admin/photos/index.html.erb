@@ -28,6 +28,10 @@
 			:accesskey => 'n',
 			:rel => '#overlay' } %>
 	</noscript>
+	
+	<%= render :partial => 'admin/photos/inc/categories' %>
+	<%= render :partial => 'admin/photos/inc/sets' if @category %>
+
 
 <% end %>
 

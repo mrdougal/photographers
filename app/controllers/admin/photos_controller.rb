@@ -49,7 +49,7 @@ class Admin::PhotosController < AdminController
 
         render :partial => 'photo'
       else
-        redirect_to [:admin, @photo]
+        redirect_to [:admin, @photo.category, @photo.set]
       end
       
     else # Failed upload
@@ -67,12 +67,12 @@ class Admin::PhotosController < AdminController
     
     if @photo.update_attributes(params[:photo])
     
-      flash[:notice] = 'Photo was successfully updated.'
+      flash[:notice] = "#{@photo} was updated"
       
       if request.xhr?
         render :nothing => true
       else
-        redirect_to [:admin, @photo]
+        redirect_to [:admin, @photo.category, @photo.set]
       end
     else
       render :action => "edit"
@@ -81,8 +81,12 @@ class Admin::PhotosController < AdminController
 
   # DELETE /photos/1
   def destroy
+    
+    
     @photo.destroy
-    redirect_to admin_photos_url
+    
+    flash[:notice] = "#{@photo} was deleted"
+    redirect_to [ :admin, @photo.category, @photo.set]
   end
   
   
@@ -95,4 +99,7 @@ class Admin::PhotosController < AdminController
   def find_photo
     @photo = Photo.find(params[:id])
   end
+  
+
+  
 end

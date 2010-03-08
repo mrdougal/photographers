@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :photo_sets
+
 
 
 
@@ -65,7 +67,10 @@ ActionController::Routing::Routes.draw do |map|
 
     admin.resource :user_sessions, :except => [:new, :destroy]
     admin.resources :users
-    admin.resources :photos
+    admin.resources :photos, :except => [:show, :index, :new] 
+    admin.resources :categories do |categories|
+      categories.resources :photo_sets, :as => "sets"
+    end
 
   end
 

@@ -1,5 +1,6 @@
 class Photo < ActiveRecord::Base
   
+  
   # Pagination settings
   cattr_accessor :per_page
   @@per_page = 50
@@ -23,10 +24,13 @@ class Photo < ActiveRecord::Base
 
   validates_attachment_presence :file, :message => "You need to upload a file"
 
-  # Taggings
-  acts_as_taggable_on :categories
-  acts_as_taggable_on :sets
-  acts_as_taggable_on :tags
+  belongs_to :category
+  belongs_to :photo_set
+  validates_presence_of :category, :photo_set
+  
+  alias :set :photo_set  # Because I keep on accidentially typing 'set' instead of 'photo_set'
+  
+  
   
   
   # By default order the photos by when they were created
@@ -49,6 +53,10 @@ class Photo < ActiveRecord::Base
   end
   
   
+
+
+  
+  
   # Don't call this in production. As this is an expensive call to make
   def self.recreate_thumbs
     
@@ -62,16 +70,6 @@ class Photo < ActiveRecord::Base
   end
 
   private
-  
-  # def generate_name_if_required
-  #   
-  #   return unless self.name.blank?
-  #   return if self.file_file_name.blank?
-  #   
-  #   # We humanise the basename of the filename. (.* removes the extension)
-  #   self[:name] = File.basename(self.file_file_name,'.*').gsub(/-/,' ').humanize
-  #   
-  # end
   
   
 end

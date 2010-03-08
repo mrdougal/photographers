@@ -1,0 +1,23 @@
+<% 
+	title @set
+	title @category
+
+ %>
+
+
+<h1><%= link_to @category, admin_category_path(@category) %> → <%= @set %></h1>
+
+
+<div id="photos">
+
+	<%= render :partial => 'admin/photo_sets/inc/empty' if @set.photos.empty? %>
+	<%= render :partial => 'admin/photos/photo', :collection => @set.photos %>	
+
+</div>
+
+
+<% content_for :options do %>
+	<%= render :partial => 'admin/photos/upload' %>
+<% end %>
+
+<%= render 'admin/photo_sets/inc/crud' %>

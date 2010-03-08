@@ -11,7 +11,10 @@ module AdminHelper
   end 
   
   def admin_current_or_active_class(url)
-    'current' if request.path =~ Regexp.new("#{url}/*")
+    
+    url.each do |u|
+      return 'current' if request.path =~ Regexp.new("#{u}/*")
+    end
   end 
   
 end

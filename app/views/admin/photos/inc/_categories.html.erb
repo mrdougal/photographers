@@ -1,0 +1,13 @@
+
+	
+	<h4>Categories</h4>
+	
+	<ul>
+	<% Category.all.each do |category| %>
+		<li>
+			<%= link_to category, admin_category_path(category), { 
+				:title => "View photos in #{category}" } %>
+		</li>
+	<% end %>
+	</ul>
+	

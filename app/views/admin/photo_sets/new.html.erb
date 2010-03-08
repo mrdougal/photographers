@@ -1,0 +1,8 @@
+<% 
+	msg = "Create a new set under '#{@category}'"
+	title msg
+ %>
+
+<h1>Create a new set under <%= link_to @category, [:admin, @category] %></h1>
+
+<%= render :partial => 'form' %>

@@ -1,0 +1,29 @@
+<% 
+	title @category
+ %>
+
+
+<div class="heading">
+	
+	<h1><%= @category %></h1>	
+
+	<%= link_to 'Create a new set', new_admin_category_photo_set_path(@category), { 
+		:class => 'new', 
+		:accesskey => 'n',
+		:rel => '#overlay' } %>
+</div>
+
+
+<div id="sets">
+	
+	<%= render :partial => 'admin/categories/inc/empty' if @sets.empty? %>
+
+	<% @sets.each do |set| %>
+	<%= render :partial => 'set', :locals => { :set => set, :category => @category } %>
+	<% end %>
+
+</div>
+	
+
+
+<%= render 'admin/categories/inc/crud' %>

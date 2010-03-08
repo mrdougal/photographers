@@ -2,9 +2,14 @@
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 
 
-@dougal = User.create!({
+@dougal = User.create({
                 :username              => 'dougal', 
                 :email                 => "contact@mrdougal.com",
                 :password              => 'password', 
                 :password_confirmation => "password" 
               })
+              
+              
+['Weddings', 'Portraits', 'Other'].each do |category|
+  Category.create( { :name => category })              
+end

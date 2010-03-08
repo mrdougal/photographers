@@ -11,10 +11,8 @@
 					:collection => (1..5), 
 					:input_html => { :class => "star" } %>
 
-		<%= f.input :category_list, :as => :string %>
-		<%= f.input :set_list, :as => :string %>
-		<%= f.input :tag_list, :as => :string %>
-		
+		<%= f.input :photo_set, :collection => @photo.category.sets %> 
+
 		<%= f.buttons %>
 	
 	<% end %>
