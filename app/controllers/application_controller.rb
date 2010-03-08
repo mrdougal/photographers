@@ -8,9 +8,12 @@ class ApplicationController < ActionController::Base
   # Scrub sensitive parameters from your log
   filter_parameter_logging :password
 
-  rescue_from ActiveRecord::RecordNotFound, :with    => :not_found
-  rescue_from ActionController::RoutingError, :with  => :not_found
-  rescue_from ActionController::UnknownAction, :with => :not_found
+  rescue_from ActiveRecord::RecordNotFound, :with       => :not_found
+  rescue_from ActionController::RoutingError, :with     => :not_found
+  rescue_from ActionController::UnknownAction, :with    => :not_found
+  rescue_from ActionController::MethodNotAllowed, :with => :method_not_allowed 
+
+  
 
 
   # For 404, which can be called via Apache care of it's config
@@ -21,6 +24,19 @@ class ApplicationController < ActionController::Base
   # For 403, (which will be called via Apache care of it's config)
   def not_allowed
     render :template => 'shared/rescues/not_allowed', :status => 403 
+  end
+
+  # For when we disable restful actions
+  def method_not_allowed
+    render :template => 'shared/rescues/not_found', :status => 405
+  end
+  
+  private
+  
+
+  
+  def admin?
+    request.request_uri =~ /admin/
   end
 
 end
