@@ -12,7 +12,7 @@ ActionController::Routing::Routes.draw do |map|
     site.keep_alive '/stylesheets/caffine.css', :action => 'caffine', :format => 'css'
 
     # General pages
-    site.about_us 'about', :action => "about" 
+    site.about 'about', :action => "about" 
     site.contact 'contact', :action => "contact" 
 
     # Rescues, called from Apache config
