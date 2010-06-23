@@ -69,7 +69,7 @@ class Admin::CategoriesController < AdminController
   private
   
   def find_category
-    @category = Category.find(params[:id]) if params[:id]
+    @category = Category.find_by_permalink!(params[:id]) if params[:id]
   end
   
   def new_photo
