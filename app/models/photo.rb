@@ -36,7 +36,7 @@ class Photo < ActiveRecord::Base
   default_scope :order => "created_at desc"
   
   # The list of top photos
-  named_scope :best, :order => "rating desc", :conditions => "rating == 5" 
+  named_scope :best, :order => "rating desc", :conditions => "rating = 5" 
   
   named_scope :top, :limit => 5
   
