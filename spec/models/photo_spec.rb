@@ -59,17 +59,14 @@ describe Photo do
   
   describe "methods that return it's filename" do
     
-    it "should contains it's filename" do
-      @photo.name.should =~ /#{@photo.file_file_name}/
-    end
+    # it "should contains it's filename" do
+    #   @photo.name.should =~ /#{@photo.file_file_name}/
+    # end
 
     it "should not be blank" do
       @photo.name.should_not be_blank
     end
 
-    it "should return it's filename from to_s" do
-      @photo.to_s.should =~ /#{@photo.file_file_name}/
-    end
   end
   
   describe "categories" do
