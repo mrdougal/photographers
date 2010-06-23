@@ -6,15 +6,19 @@ module NavigationHelper
 
     out = []
     out << content_tag(:ul, default_links)
-    out << content_tag(:ul, photo_links) if @sets
+    out << content_tag(:ul, photo_links, { :class => "categories" }) if @sets
     out
     
   end
   
   # Creates a link for display in the navigation
-  def nav_link(str)
+  def nav_link(str, path = '')
     
-    link_to str.to_s.titleize, str, :class => ('current' if active_section? str)
+    url = [path, str.to_s.downcase].join('/')
+
+    content_tag :li do
+      link_to str.to_s.titleize, url, :class => ('current' if active_section? url)
+    end
   end
   
   # Returns boolean if the request contains part of the url from the argument
@@ -25,12 +29,11 @@ module NavigationHelper
   # Our default set of links to display in the navigation
   def default_links
     
-    defaults = []
+    out = []
     [:about, :contact, :photos].each do |val|
-      defaults << content_tag(:li, nav_link(val))
+      out << nav_link(val)
     end
-    
-    defaults
+    out
     
   end
   
@@ -41,7 +44,7 @@ module NavigationHelper
 
     out = []
     @sets.each do |s|
-      out << nav_link(s)
+      out << nav_link(s, '/photos')
     end
     out
     
