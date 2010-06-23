@@ -6,9 +6,7 @@
 
 <div class="attributes">
 	
-	<%#= simple_format @photo.category_list.to_sentence %>
-	<%#= simple_format @photo.set_list.to_sentence %>
-
+	<%= link_to @photo.category, admin_category_path(@photo.category) %>
 	<%#= simple_format @photo.tag_list.to_sentence %>
 
 </div>

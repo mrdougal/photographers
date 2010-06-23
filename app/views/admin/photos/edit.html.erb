@@ -1,9 +1,19 @@
 <% title "Editing '#{@photo}'" %>
 
-<h1><%= @photo %></h1>
+<h1>
+	<%= link_to @photo.category, admin_category_path(@photo.category), { :title  => 'Category'} %>
+	&rarr;
+	<%= @photo %>
+</h1>
 
-<%= render :partial => 'admin/photos/inc/thumb' %>
-<%= render :partial => 'admin/photos/inc/crud' %>
+<!-- Have the display as two columns -->
+<div class="group">
+<%= render 'admin/photos/inc/thumb' %>
+</div>
 
-
+<div class="group">
 <%= render 'form' %>
+</div>
+
+<%= render 'admin/photos/inc/crud' %>
+
