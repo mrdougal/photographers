@@ -57,6 +57,7 @@ class Admin::CategoriesController < AdminController
   def destroy
     
     if @category.destroy
+      flash[:notice] = "#{@category} was deleted"
       redirect_to admin_categories_url
     else
       flash[:warning] = "#{@category.errors}"
