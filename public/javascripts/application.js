@@ -20,7 +20,7 @@ function start_slideshow () {
 		var thumb = $(this).children().filter(":first");
 		
 		// Find the title
-		var title = $('#slideshow h2').text($(this).attr('title'));
+		var title = $('#slideshow h4').text($(this).attr('title'));
 		
 		// calculate large image's URL based on the thumbnail URL
 		var image_url = thumb.attr("src").replace("tiny", "slideshow");

@@ -1,34 +1,22 @@
-/* @override 
-	http://shinephoto.local/stylesheets/site/shinephoto.css?1264733246
-	http://shinephoto.local/stylesheets/site/shinephoto.css?1264998648
-	http://shinephoto.local/stylesheets/site/shinephoto.css?1264998791
-	http://shinephoto.local/stylesheets/site/shinephoto.css?1265116420
-*/
-
 body {
-	font: 10pt "Chaparral Pro", Georgia, "Times New Roman";
+	font: 12pt "Lucida Grande", Lucida, Verdana, sans-serif;
+	color: #919191;
 }
 
 /* @group top */
 
-#top {
-	background-color: #919191;
-	padding-top: 20px;
+header {
+	background-color: #515151;
+	padding-top: 30px;
 	padding-bottom: 10px;
 	float: left;
 	clear: both;
 	width: 100%;
-	position: absolute;
-	top: 400px;
 }
 
-#top a {
+header a {
 	text-decoration: none;
 	color: #fff;
-}
-
-#root {
-	font-size: 14pt;
 }
 
 
@@ -42,67 +30,56 @@ h1 {
 	margin-bottom: 10px;
 }
 
-#wrapper {
-	padding-bottom: 40px;
-	padding-top: 40px;
-	width: 100%;
-	clear: both;
-	float: left;
+/* @group links */
+
+a {
+	text-decoration: none;
+	color: #919191;
 }
 
-#main {
-	width: 70%;
-	float: right;
+a:hover {
+	text-decoration: none;
+	color: #000;
 }
 
-#side {
-	width: 30%;
-	float: left;
-}
+
+
+/* @end */
 
 .container {
-	width: 80%;
-	padding-left: 10%;
-	padding-right: 10%;
+	padding-left: 230px;
 	max-width: 1200px;
 	min-width: 800px;
 }
 
-#footer {
-	border-top: 1px dotted #cacaca;
-	padding-top: 40px;
-	padding-bottom: 40px;
+#main {
 	float: left;
 	clear: both;
-	width: 100%;
-}
-
-img.uploaded {
-	border: 1px solid #cacaca;
+	padding-top: 20px;
+	padding-bottom: 20px;
 }
 
 /* @group slideshow */
 
 #slideshow {
-	width: 600px;
-	position: absolute;
+	width: 800px;
+	float: left;
 }
 
-h2.caption {
-	padding-bottom: 10px;
+#slideshow h4 {
 	padding-top: 10px;
-	font-size: 12pt;
-}
-
-.scrollable {
-	margin-top: 5px;
+	padding-bottom: 10px;
 }
 
 #image_wrap {
 	background: url(/images/admin/icons/busy-large.gif) no-repeat center center;
-	width: 600px;
-	height: 360px;
+	width: 800px;
+	height: 500px;
 	overflow: hidden;
+	border: 3px solid #cacaca;
+}
+
+.scrollable {
 }
 
 .scrollable img {
@@ -111,10 +88,62 @@ h2.caption {
 	border-width: 1px;
 }
 
+.scrollable a img:hover {
+	border-color: #ff403c;
+}
+
 .scrollable a.active img {
 	border-color: #000;
+}
+
+img.uploaded {
+	border: 3px solid #cacaca;
 }
 
 
 
 /* @end */
+
+#caption {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+/* @group nav */
+
+nav {
+	width: 180px;
+	float: left;
+	margin-left: -200px;
+	margin-top: -5px;
+}
+
+nav a {
+	padding: 5px;
+	display: block;
+	text-align: right;
+}
+
+
+
+/* @end */
+
+/* @group main */
+
+#main {
+	width: 100%;
+	clear: both;
+}
+
+
+
+/* @end */
+
+footer {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	clear: both;
+	width: 100%;
+	color: #cacaca;
+	font: 80% Georgia, "Times New Roman", Times, serif;
+}

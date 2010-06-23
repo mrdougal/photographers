@@ -15,43 +15,39 @@
 </head>
 <body>
 
-	<div id="top">
-		
+	<header>
 		<div class="container">
-			
-		
+			<nav>
 			<%= link_to 'Shine Photo', root_path, { :id => "root" } %>
-		
-			<ul id="nav">
-				<li><%= link_to 'Photos', photos_path %></li>
-			</ul>
+			</nav>
 		</div>
-	</div> <!-- end of top -->
+	</header>
 
-	<div id="wrapper">
-
+	<div id="main">
 		<div class="container">
 			
+			<nav><%= yield :nav %></nav>
 			
-			<div id="main">
-				<%= yield %>
-			</div>
-			
-			<div id="side">
-				<%= yield :side %>
-			</div>
+			<%= yield %>
 			
 		</div> <!-- end of container -->
-	</div> <!-- end of wrapper -->
+	</div> <!-- end of main -->
 	
-	<div id="footer">
+	<div id="caption">
+		<div class="container">
+			
+			<%= yield :side %>
+		</div>
+	</div>
+			
+	<footer id="footer">
 		<div class="container">
 			
 			<!-- This is where our sitemap will at the base of each page -->
-			Sitemap and other stuff goes in here
+			Copyright 2010 Shine Photo. All Rights Reserved. 
 			
 		</div>
-	</div>
+	</footer>
 	
 	<%= yield :javascript %>
 	

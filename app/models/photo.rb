@@ -10,7 +10,7 @@ class Photo < ActiveRecord::Base
                            :url => "/uploaded/photos/:id/:style/:filename", 
                            :default_url => "/images/missing/:attachment/:style.png",
                            :whiny => true,
-                           :styles => { :slideshow => ["800#x450#", :png], 
+                           :styles => { :slideshow => ["800x500#", :png], 
                                         :medium    => ["160x160#", :png],
                                         :thumb     => ["80x80#", :png], 
                                         :tiny      => ["40x40#", :png] }
