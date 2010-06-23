@@ -343,10 +343,13 @@ a img.uploaded:hover {
 .group {
 	float: left;
 	padding-right: 20px;
-	clear: none;
 	margin-right: 20px;
-	height: 150px;
 	overflow: hidden;
+	width: 40%;
+}
+
+.group li {
+	display: inline;
 }
 
 /* @group category */

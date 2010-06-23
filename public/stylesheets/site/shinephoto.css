@@ -1,4 +1,8 @@
-/* @override http://shinephoto.local/stylesheets/site/shinephoto.css?1277275283 */
+/* @override 
+	http://shinephoto.local/stylesheets/site/shinephoto.css?1277275283
+	http://shinephoto.local/stylesheets/site/shinephoto.css?1277275499
+	http://shinephoto.local/stylesheets/site/shinephoto.css?1277281678
+*/
 
 body {
 	font: 12pt "Lucida Grande", Lucida, Verdana, sans-serif;
@@ -9,16 +13,18 @@ body {
 
 header {
 	background-color: #515151;
-	padding-top: 30px;
-	padding-bottom: 10px;
 	float: left;
 	clear: both;
 	width: 100%;
 }
 
-header a {
+header nav a {
 	text-decoration: none;
 	color: #fff;
+	font-weight: bold;
+	font-size: 12pt;
+	padding-top: 30px;
+	padding-bottom: 10px;
 }
 
 
@@ -32,6 +38,11 @@ h1 {
 	margin-bottom: 10px;
 }
 
+h2 {
+	margin-bottom: 10px;
+	font-size: 12pt;
+}
+
 /* @group links */
 
 a {
@@ -41,7 +52,7 @@ a {
 
 a:hover {
 	text-decoration: none;
-	color: #000;
+	color: #53c2e6;
 }
 
 a.current {
@@ -54,7 +65,7 @@ a.current {
 /* @end */
 
 .container {
-	padding-left: 250px;
+	padding-left: 300px;
 	max-width: 1200px;
 	min-width: 800px;
 }
@@ -65,6 +76,39 @@ a.current {
 	padding-top: 40px;
 	padding-bottom: 20px;
 }
+
+/* @group category-preview */
+
+.category-preview {
+	float: left;
+	width: 340px;
+	display: block;
+	margin-right: 20px;
+}
+
+.category-preview a {
+	display: block;
+	float: left;
+}
+
+.category-preview img.uploaded {
+	float: left;
+	display: block;
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+
+.category-preview img.uploaded:hover {
+	float: left;
+	display: block;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	border-color: #53c2e6;
+}
+
+
+
+/* @end */
 
 /* @group slideshow */
 
@@ -96,7 +140,7 @@ a.current {
 }
 
 .scrollable a img:hover {
-	border-color: #ff403c;
+	border-color: #53c2e6;
 }
 
 .scrollable a.active img {
@@ -119,7 +163,7 @@ img.uploaded {
 /* @group nav */
 
 nav {
-	width: 180px;
+	width: 140px;
 	float: left;
 	margin-left: -220px;
 	margin-top: -5px;
