@@ -13,11 +13,12 @@ ActiveRecord::Schema.define(:version => 20100302014417) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
+    t.string   "permalink"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "categories", ["name"], :name => "index_categories_on_name"
+  add_index "categories", ["permalink"], :name => "index_categories_on_permalink"
 
   create_table "photo_sets", :force => true do |t|
     t.string   "name"
@@ -30,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20100302014417) do
   add_index "photo_sets", ["permalink"], :name => "index_photo_sets_on_permalink"
 
   create_table "photos", :force => true do |t|
+    t.string   "title"
     t.string   "file_file_name"
     t.string   "file_content_type"
     t.integer  "file_file_size"

@@ -2,6 +2,8 @@ class CreatePhotos < ActiveRecord::Migration
   def self.up
     create_table :photos do |t|
 
+      t.string    :title
+
       # Paperclip columns
       t.string    :file_file_name
       t.string    :file_content_type
