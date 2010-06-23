@@ -1,0 +1,7 @@
+<% 
+	msg = "#{@category} doesn't have any photos"
+	title msg  %>
+
+<h1><%= msg %></h1>
+
+<p>There are no <%= @category.name.singularize %> photos to show you</p>
