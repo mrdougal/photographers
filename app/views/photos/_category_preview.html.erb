@@ -1,0 +1,12 @@
+<div class="category-preview">
+	
+	<%- link_to category, :title => "#{category}" do -%>
+
+		<h2><%= category %></h2>
+
+		<%- category.photos.top.each_with_index do |photo, i| -%>
+			<%= image_tag photo.url( i == 0 ? :medium : :tiny), { :class => "uploaded", :title => photo.name } %>
+		<%- end -%>
+	<%- end -%>
+
+</div>

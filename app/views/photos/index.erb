@@ -1,10 +1,10 @@
-<% title "Photos #{pagination_title @photos}" %>
+<% title "Photos #{pagination_title @categories}" %>
 
 
+<% @categories.each do |category| %>
 
-<%= render :partial => 'slideshow' %>
+	<%= render :partial  => 'category_preview', :locals => { :category => category } %>
 
+<% end %>
 
-
-<%= will_paginate @photos %>
 

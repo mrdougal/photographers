@@ -38,6 +38,8 @@ class Photo < ActiveRecord::Base
   # The list of top photos
   named_scope :best, :order => "rating desc", :conditions => "rating == 5" 
   
+  named_scope :top, :limit => 5
+  
   
   def to_s
     name

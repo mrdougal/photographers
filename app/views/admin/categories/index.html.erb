@@ -4,31 +4,23 @@
 
 <div id="categories">
 	
+	<ul>
 	<% @categories.each do |category| %>
 
-		<div class="group">
+		<li class="group">
+
 			<h2><%= link_to category, admin_category_path(category) %></h2>
-			
-			<ul>
-				<% category.photos.each do |photo| %>
-				<li><% link_to edit_admin_photo_path(photo) do %>
-						<%= image_tag photo.url(:tiny), { :class => "uploaded" } %>
-					<% end %>
-				</li>
+		
+			<% category.photos.top.each do |photo| %>
+			<% link_to edit_admin_photo_path(photo) do %>
+					<%= image_tag photo.url(:tiny), { :class => "uploaded" } %>
 				<% end %>
-			</ul>
-			
-		</div>
+			<% end %>
+		</li>
 		
 	<% end %>
+	</ul>
 	
-	<div class="group">
-		
-	<%= link_to 'Create a new category', new_admin_category_path, { 
-		:class => 'new', 
-		:accesskey => 'n',
-		:rel => '#overlay' } %>
-	</div>
 	
 </div>
 
@@ -38,6 +30,10 @@
 
 <% content_for :options do %>
 
+	<%= link_to 'Create a new category', new_admin_category_path, { 
+		:class => 'new', 
+		:accesskey => 'n',
+		:rel => '#overlay' } %>
 	<%#= render :partial => 'admin/photos/inc/sets' if @category %>
 
 

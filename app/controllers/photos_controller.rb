@@ -1,13 +1,17 @@
 class PhotosController < ApplicationController
   
-  before_filter :find_sets
+  before_filter :find_sets, :except => [ :index ] 
   
 
   # get /photos
   def index
     
     # @photo_sets = PhotoSet.all
-    @photos = Photo.paginate :all, :page => params[:page]
+    # @photos = Photo.paginate :all, :page => params[:page]
+    
+    @categories = Category.all
+    
+    
   end
 
   # get /photos/id/:permalink
@@ -17,7 +21,7 @@ class PhotosController < ApplicationController
 
   # get /photos/:permalink
   def category
-    @category = Category.find_by_permalink params[:permalink]
+    @category = Category.find_by_permalink! params[:permalink]
     @photos = @category.photos
     
     return render 'category_empty' if @photos.empty?
