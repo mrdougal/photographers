@@ -47,9 +47,9 @@ class Admin::PhotosController < AdminController
 
       elsif uploadify? 
 
-        render :partial => 'photo'
+        render :partial => 'admin/photos/inc/photo'
       else
-        redirect_to [:admin, @photo.category, @photo.set]
+        redirect_to [:admin, @photo.category]
       end
       
     else # Failed upload
@@ -72,7 +72,7 @@ class Admin::PhotosController < AdminController
       if request.xhr?
         render :nothing => true
       else
-        redirect_to [:admin, @photo.category, @photo.set]
+        redirect_to [:admin, @photo.category]
       end
     else
       render :action => "edit"
@@ -86,7 +86,7 @@ class Admin::PhotosController < AdminController
     @photo.destroy
     
     flash[:notice] = "#{@photo} was deleted"
-    redirect_to [ :admin, @photo.category, @photo.set]
+    redirect_to [ :admin, @photo.category]
   end
   
   

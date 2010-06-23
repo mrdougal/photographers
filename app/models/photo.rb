@@ -25,10 +25,9 @@ class Photo < ActiveRecord::Base
   validates_attachment_presence :file, :message => "You need to upload a file"
 
   belongs_to :category
-  belongs_to :photo_set
-  validates_presence_of :category, :photo_set
+  validates_presence_of :category
   
-  alias :set :photo_set  # Because I keep on accidentially typing 'set' instead of 'photo_set'
+  # alias :set :photo_set  # Because I keep on accidentially typing 'set' instead of 'photo_set'
   
   
   

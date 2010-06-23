@@ -5,13 +5,16 @@
 
 	<% f.inputs do %>
 	
+	
+		<%= f.input :title %>
+	
 		<!-- For rating the photo -->
 		<%= f.input :rating, 
 					:as => :radio, 
 					:collection => (1..5), 
 					:input_html => { :class => "star" } %>
 
-		<%= f.input :photo_set, :collection => @photo.category.sets %> 
+		<%= f.input :category, :collection => Category.all %> 
 
 		<%= f.buttons %>
 	

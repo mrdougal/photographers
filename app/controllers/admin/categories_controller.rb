@@ -31,7 +31,7 @@ class Admin::CategoriesController < AdminController
   end
   
   def show
-    @sets = @category.sets
+    @photos = @category.photos
   end
 
   def edit

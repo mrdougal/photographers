@@ -1,5 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :photo_sets
+
+
+  # map.resources :photo_sets
 
 
 
@@ -35,18 +37,22 @@ ActionController::Routing::Routes.draw do |map|
     
     photo.photos_with_pages 'photos/page/:page', :action => "index" 
     photo.photos 'photos', :action => "index"
-
-    # Tags
-    photo.photos_tagged_with_pages 'photos/tagged/:tag/page/:page', :action => "tagged" 
-    photo.photos_tagged 'photos/tagged/:tag', :action => "tagged" 
-    photo.photos_tags 'photos/tagged', :action => "tags" 
-
-    # Sets
-    photo.photo_set 'photos/sets/:permalink', :action => "set" 
-    photo.photo_sets_with_pages 'photos/sets/page/:page', :action => "sets" 
-    photo.photo_sets 'photos/sets', :action => "sets" 
+    photo.photo 'photos/id/:permalink', :action => "show"
     
-    photo.photo 'photos/:permalink', :action => "show"
+    # Categories
+    photo.category 'photos/:permalink', :action => "category" 
+    
+    # # Tags
+    # photo.photos_tagged_with_pages 'photos/tagged/:tag/page/:page', :action => "tagged" 
+    # photo.photos_tagged 'photos/tagged/:tag', :action => "tagged" 
+    # photo.photos_tags 'photos/tagged', :action => "tags" 
+    # 
+    # # Sets
+    # photo.photo_set 'photos/sets/:permalink', :action => "set" 
+    # photo.photo_sets_with_pages 'photos/sets/page/:page', :action => "sets" 
+    # photo.photo_sets 'photos/sets', :action => "sets" 
+    
+    # photo.category 'photos/:permalink', :action => "index" 
     
   end 
   
@@ -67,9 +73,10 @@ ActionController::Routing::Routes.draw do |map|
 
     admin.resource :user_sessions, :except => [:new, :destroy]
     admin.resources :users
-    admin.resources :photos, :except => [:show, :index, :new] 
+    admin.resources :photos, :except => [:index, :new] 
     admin.resources :categories do |categories|
-      categories.resources :photo_sets, :as => "sets"
+      # categories.resources :photos, :only => 
+      # categories.resources :photo_sets, :as => "sets"
     end
 
   end

@@ -17,7 +17,6 @@ $(document).ready(function(){
 		'fileDataName' : 'photo[file]',
 		'scriptData' : {
 			'photo[category_id]' : '<%= @category.id if @category %>',
-			'photo[photo_set_id]': '<%= @set.id if @set %>',
 			'authenticity_token' : encodeURIComponent('<%= u form_authenticity_token if protect_against_forgery? %>')
 		},
 		'multi' : true,
@@ -41,13 +40,15 @@ $(document).ready(function(){
 
 
 
+<% content_for :options do %>
 
-<!-- We need a multipart form as we're uploading images -->
+	<!-- We need a multipart form as we're uploading images -->
 
-<% form_for [:admin, @photo], :html => { :multipart => true } do |f| %>  
+	<% form_for [:admin, @photo], :html => { :multipart => true } do |f| %>  
 
-	<%= f.file_field :file %>
-	<noscript><%= f.submit %></noscript>
+		<%= f.file_field :file %>
+		<noscript><%= f.submit %></noscript>
 
 	
+	<% end %>
 <% end %>
