@@ -9,9 +9,6 @@
 	<%= stylesheet_link_tag :all, :cache => 'cache/public' %>
 	<%= stylesheet_link_tag 'site/shinephoto' %>
 	
-	<%= javascript_include_tag :all, :cache => 'cache/public' %>
-
-
 </head>
 <body>
 
@@ -50,7 +47,13 @@
 		</div>
 	</footer>
 	
-	<%= yield :javascript %>
+	<%= javascript_include_tag :all, :cache => 'cache/public' %>
+	
+	<script type="text/javascript">
+		//<![CDATA[
+		<%= yield :javascript %>
+		//]]>
+	</script>
 	
 </body>
 </html>
