@@ -6,17 +6,13 @@ class PhotosController < ApplicationController
   # get /photos
   def index
     
-    # @photo_sets = PhotoSet.all
-    # @photos = Photo.paginate :all, :page => params[:page]
-    
     @categories = Category.all
-    
     
   end
 
   # get /photos/id/:permalink
   def show
-    @photo = Photo.find_by_permalink! params[:permalink]
+    @photo = Photo.find params[:permalink]
   end
 
   # get /photos/:permalink
@@ -46,31 +42,12 @@ class PhotosController < ApplicationController
     return render 'tagged_empty' if @photos.empty?
   end
   
-  # # get /photos/sets
-  # def sets
-  #   
-  #   @sets = PhotoSet.paginate :all, :page => params[:page]
-  #   return not_found if @sets.empty?
-  # end
-  # 
-  # # get /photos/sets/:permalink
-  # def set
-  #   
-  #   # Clear out any excess whitespace
-  #   @set = PhotoSet.find_by_permalink! params[:permalink].rstrip
-  #   @photos = @set.photos
-  #   
-  #   return render 'set_empty' if @photos.empty?
-  #   
-  # end
-  
   
   private
-  
+
+  # This triggers the side menu on the site
   def find_sets
-    
     @sets = Category.find :all, :select => 'name'
-    
   end
 
 end
