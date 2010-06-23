@@ -21,7 +21,7 @@
 		<div class="items">
 			<%- @photos.each do |photo| -%>
 				<%- link_to photo, :title => "#{photo}" do -%>
-					<%= image_tag photo.url(:tiny), { :class => "uploaded" } %>
+					<%= image_tag photo.url(:tiny), { :class => "uploaded", :title => photo.name } %>
 				<%- end -%>
 			<%- end -%>
 		</div>

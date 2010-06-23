@@ -41,11 +41,11 @@ class Photo < ActiveRecord::Base
   
   
   def to_s
-    file_file_name
+    name
   end
   
   def name
-    file_file_name
+    self.title || file_name_for_display
   end
   
   def url style
@@ -70,6 +70,15 @@ class Photo < ActiveRecord::Base
   end
 
   private
+  
+  def file_name_for_display
+    
+    end_pos = self.file_file_name =~ /[.$]/
+    
+    # Remove the extension and humanize the result
+    self.file_file_name[0...end_pos].humanize
+
+  end
   
   
 end
