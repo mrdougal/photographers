@@ -10,10 +10,13 @@ class Photo < ActiveRecord::Base
                            :url => "/uploaded/photos/:id/:style/:filename", 
                            :default_url => "/images/missing/:attachment/:style.png",
                            :whiny => true,
-                           :styles => { :slideshow => ["800x500#", :png], 
-                                        :medium    => ["160x160#", :png],
-                                        :thumb     => ["80x80#", :png], 
-                                        :tiny      => ["40x40#", :png] }
+                           :convert_options => {
+                             :all => "-strip"
+                           }, 
+                           :styles => { :slideshow => ["800x500#", :jpg], 
+                                        :medium    => ["160x160#", :jpg],
+                                        :thumb     => ["80x80#", :jpg], 
+                                        :tiny      => ["40x40#", :jpg] }
 
                             
   
