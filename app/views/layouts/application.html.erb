@@ -9,6 +9,10 @@
 	<%= stylesheet_link_tag :all, :cache => 'cache/public' %>
 	<%= stylesheet_link_tag 'site/shinephoto' %>
 	
+	<!--[if lte IE 8]>
+	<%= javascript_include_tag 'ie/modernizr-1.5.min' %>
+	<![endif]-->
+	
 </head>
 <body>
 
@@ -48,6 +52,7 @@
 	</footer>
 	
 	<%= javascript_include_tag :all, :cache => 'cache/public' %>
+	
 	
 	<script type="text/javascript">
 		//<![CDATA[
