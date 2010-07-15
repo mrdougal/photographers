@@ -7,8 +7,8 @@
 	<ul>
 	<% @categories.each do |category| %>
 
-		<li class="group">
-
+		<li class="group" id="category_<%= category.id %>">
+			<span class="handle">drag me</span>
 			<h2><%= link_to category, admin_category_path(category) %></h2>
 		
 			<% category.photos.top.each do |photo| %>
@@ -28,16 +28,15 @@
 
 <%= will_paginate @categories %>
 
-<% content_for :options do %>
+<%= render 'admin/categories/inc/crud' %>
 
-	<%= link_to 'Create a new category', new_admin_category_path, { 
-		:class => 'new', 
-		:accesskey => 'n',
-		:rel => '#overlay' } %>
-	<%#= render :partial => 'admin/photos/inc/sets' if @category %>
+<% content_for :javascript do %>
+
+	$("#categories").sortable({
+		opacity: 0.6,
+		items: 'li',
+		handle: '.handle'
+	});
 
 
 <% end %>
-
-
-

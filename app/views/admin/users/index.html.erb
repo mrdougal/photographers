@@ -18,7 +18,7 @@
 				<%= link_to user, edit_admin_user_path(user) %>
 			</td>
 			<td>
-				<%= mail_to user.email, user.email, { :title => "Send an email to #{user}", :class => "email" } %>
+				<%= mail_to user.email, user.email, { :title => "Send an email to #{user}" } %>
 			</td>
 		</tr>
 		<% end %>

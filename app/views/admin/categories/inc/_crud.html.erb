@@ -1,12 +1,30 @@
 <% content_for :options do %>
 
 <div class="crud">
+
+
+	<% if controller.action_name == 'index' %>
                       
 	<%= link_to 'Create a new category', new_admin_category_path, { 
 		:class => 'new', 
 		:accesskey => 'n',
-		:rel => '#overlay' } if controller.action_name == 'index' %>
-                      
+		:rel => '#overlay' } %>
+
+
+	<!-- Add a listener to observe this link -->
+	<%= link_to 'Sort the categories', '/admin/#sort', { 
+		:class => 'sort',
+		:id => 'toggle-sorting' } %>
+		
+	<% content_for :javascript do %>	
+		$('#toggle-sorting').bind('click',function(){
+			console.log('toggled');
+			return false;
+		})
+	<% end %>
+
+    <% end %>                  
+
                       
 	<% if @category && !@category.new_record? %>
 	                  

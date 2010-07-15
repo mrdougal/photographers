@@ -16,7 +16,7 @@ $(document).ready(function() {
 function attach_confirmation_to_public_links () {
 
 	// Find all links, and filter out the ones which don't point to within the admin section
-	$('a').filter(':not([href*="admin"])').each(function() {
+	$('a').filter(':not([href*="/admin"])').each(function() {
 
 		// This will attach a javascript prompt for when the link is clicked
 		$(this).bind('click', function() {

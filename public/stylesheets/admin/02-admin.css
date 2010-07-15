@@ -2,6 +2,7 @@
 	http://shinephoto.local/stylesheets/admin/02-admin.css?1267511171
 	http://shinephoto.local/stylesheets/admin/02-admin.css?1268022679
 	http://shinephoto.local/stylesheets/admin/02-admin.css?1268022762
+	http://shinephoto.local/stylesheets/admin/02-admin.css?1277277374
 */
 
 .container {
@@ -48,25 +49,13 @@ a#site {
 
 /* @group options/crud */
 
-#options {
-	padding-top: 10px;
-	padding-bottom: 10px;
-	margin-bottom: 10px;
-	background-color: #f4f4f4;
-	display: block;
-	float: left;
-	clear: both;
-	width: 100%;
-}
-
 .crud a {
 	font-weight: normal;
 	font-style: normal;
 	background-position: 0 center;
 	text-decoration: none;
-	padding-top: 5px;
-	padding-bottom: 5px;
-	padding-right: 5px;
+	padding: 5px 10px 5px 20px;
+
 }
 
 .crud a:hover {
@@ -74,43 +63,22 @@ a#site {
 
 a.new {
 	background: url(/images/admin/icons/new.png) no-repeat left center;
-	padding: 5px 10px 5px 20px;
 }
 
 a.edit {
 	background: url(/images/admin/icons/edit.png) no-repeat left center;
-	padding: 5px 10px 5px 20px;
 }
 
 a.delete {
 	background: url(/images/admin/icons/delete.png) no-repeat left center;
-	padding: 5px 10px 5px 20px;
 }
 
 a.show {
 	background: url(/images/admin/icons/show.png) no-repeat left center;
-	padding: 5px 10px 5px 20px;
-}
-
-a.www {
-	background: url(/images/admin/icons/www.png) no-repeat left center;
-	padding-left: 20px;
-	padding-top: 1em;
-	padding-bottom: 1em;
-}
-
-a.zoom {
-	background: url(/images/admin/icons/zoom.png) no-repeat left center;
-	padding-left: 20px;
-	padding-top: 1em;
-	padding-bottom: 1em;
 }
 
 a.email {
 	background: url(/images/admin/icons/email.png) no-repeat left center;
-	padding-left: 20px;
-	padding-top: 1em;
-	padding-bottom: 1em;
 }
 
 /* @end */
@@ -147,100 +115,17 @@ div.flash {
 
 /* @group drop and drop tree */
 
-/* @group sorting toggle */
-
-a#sorting_toggle {
-	font-weight: normal;
-	font-style: normal;
-	background-position: 0 center;
-	text-decoration: none;
-	padding-top: 5px;
-	padding-bottom: 5px;
-	padding-right: 10px;
-	margin-right: 10px;
-}
-
-a.toggle-off {
-	background: url(/images/admin/icons/sitemap.png) no-repeat left center;
-	padding: 5px 10px 5px 20px;
-}
-
-a.toggle-on {
-	background: url(/images/admin/icons/stop.png) no-repeat left center;
-	padding: 5px 10px 5px 20px;
-}
-
-
-
-/* @end */
-
-/* @group #list */
-
-#list {
-	padding: 0;
-}
-
-#list ul {
-	padding: 5px 0 0;
-	list-style-type: none;
-	list-style-image: none;
-	display: block;
-	margin: 0;
-}
-
-#list li {
-	padding-top: 10px;
-	list-style-type: none;
-	list-style-image: none;
-}
-
-#list .closed li {
-	display: none;
-}
-
-#list li ul {
-	padding-top: 5px;
-	list-style-type: none;
-	list-style-image: none;
-	padding-left: 30px;
-}
-
-#list li.first {
-	height: 0;
-}
-
-#list a.edit {
-	padding: 10px 10px 10px 0;
-}
-
-
-
-/* @end */
-
 /* @group sortable */
 
-.sortable li {
+.handle {
+	background-color: #faffcb;
+	width: 0;
+	overflow: hidden;
+	height: 20px;
+	position: absolute;
+	margin-left: -20px;
+	padding-left: 20px;
 	cursor: move;
-}
-
-.sortable a.edit {
-	display: none;
-}
-
-/* Dragging and dropping */
-
-.sortable .drop_hover {
-	background: url(/images/admin/icons/drag.png) no-repeat left;
-}
-
-.sortable .drop_top {
-	background-position: 10px top;
-}
-.sortable .drop_bottom {
-	background-position: 10px bottom;
-}
-.sortable .drop_insert {
-	background-position: 20px 100%;
 }
 
 
