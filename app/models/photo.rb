@@ -6,24 +6,26 @@ class Photo < ActiveRecord::Base
   @@per_page = 50
   
   # Paperclip settings
-  has_attached_file :file, :convert_options => { :all => "-channel RGB" }, 
-                           :url => "/uploaded/photos/:id/:style/:filename", 
-                           :default_url => "/images/missing/:attachment/:style.png",
-                           :whiny => true,
-                           :convert_options => {
-                             :all => "-strip"
-                           }, 
-                           :styles => { :slideshow => ["800x500#", :jpg], 
+  has_attached_file :file, :styles => { :slideshow => ["800x500#", :jpg], 
                                         :medium    => ["160x160#", :jpg],
-                                        :thumb     => ["80x80#", :jpg], 
-                                        :tiny      => ["40x40#", :jpg] }
+                                        :thumb     => ["80x80#",   :jpg], 
+                                        :tiny      => ["40x40#",   :jpg] },
+                           :convert_options => { :all => "-channel RGB -strip -quality 80" }, 
+                           :default_url => "/images/missing/:attachment/:style.jpg",
+                           :path => "photos/:id/:style/:basename.:extension",
+                           # 
+                           # Storage on Amazon S3 to save on bandwidth to our server
+                           :storage => :s3, 
+                           :s3_credentials => "#{Rails.root}/config/s3.yml",
+                           :bucket => 'assets.shinephoto.com.au',
+                           :url => ":s3_domain_url"
 
-                            
-  
-  # validates_attachment_content_type :file, {
-  #   :content_type => %r{image}, 
-  #   :message => "Image's only please" 
-  # }             
+
+     # validates_attachment_content_type :file, {
+     #   :content_type => %r{image}, 
+     #   :message => "Image's only please" 
+     # }             
+                                        
 
   validates_attachment_presence :file, :message => "You need to upload a file"
 
@@ -49,11 +51,13 @@ class Photo < ActiveRecord::Base
   end
   
   def name
-    self.title || file_name_for_display
+    
+    return self.title unless self.title.blank?
+    file_name_for_display
   end
   
   def url style
-    file.url style, false
+    self.file.url(style, false)
   end
   
   
@@ -77,10 +81,13 @@ class Photo < ActiveRecord::Base
   
   def file_name_for_display
     
-    end_pos = self.file_file_name =~ /[.$]/
-    
-    # Remove the extension and humanize the result
-    self.file_file_name[0...end_pos].humanize
+    # end_pos = self.file_file_name =~ /[.$]/
+    # 
+    # # Remove the extension and humanize the result
+    # self.file_file_name[0...end_pos].humanize
+    return 'No file supplied'  if self.file_file_name.nil?
+
+    File.basename(self.file_file_name, ".*").humanize
 
   end
   
