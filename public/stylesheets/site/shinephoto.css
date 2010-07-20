@@ -1,8 +1,10 @@
-/* @override http://0.0.0.0:3000/stylesheets/site/shinephoto.css?1279238024 */
 
 @font-face {
-	font-family: "dagobert";
-	src: url(/stylesheets/fonts/dagobert.ttf) format("truetype");
+	font-family: 'DagobertRegular';
+	src: url('/stylesheets/fonts/dagobert/dagobert-webfont.eot');
+	src: local('☺'), url('/stylesheets/fonts/dagobert/dagobert-webfont.woff') format('woff'), url('/stylesheets/fonts/dagobert/dagobert-webfont.ttf') format('truetype'), url('/stylesheets/fonts/dagobert/dagobert-webfont.svg#webfontT6WjfSue') format('svg');
+	font-weight: normal;
+	font-style: normal;
 }
 
 
@@ -30,7 +32,7 @@ header nav a {
 }
 
 header nav #root {
-	font-family: dagobert;
+	font-family: 'DagobertRegular';
 	margin-left: -40px;
 	margin-right: -20px;
 }
