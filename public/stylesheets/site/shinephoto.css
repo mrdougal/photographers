@@ -1,8 +1,10 @@
-/* @override 
-	http://shinephoto.local/stylesheets/site/shinephoto.css?1277275283
-	http://shinephoto.local/stylesheets/site/shinephoto.css?1277275499
-	http://shinephoto.local/stylesheets/site/shinephoto.css?1277281678
-*/
+/* @override http://0.0.0.0:3000/stylesheets/site/shinephoto.css?1279238024 */
+
+@font-face {
+	font-family: "dagobert";
+	src: url(/stylesheets/fonts/dagobert.ttf) format("truetype");
+}
+
 
 body {
 	font: 12pt "Lucida Grande", Lucida, Verdana, sans-serif;
@@ -22,9 +24,15 @@ header nav a {
 	text-decoration: none;
 	color: #fff;
 	font-weight: bold;
-	font-size: 12pt;
+	font-size: 32pt;
 	padding-top: 30px;
-	padding-bottom: 10px;
+	padding-bottom: 0px;
+}
+
+header nav #root {
+	font-family: dagobert;
+	margin-left: -40px;
+	margin-right: -20px;
 }
 
 
