@@ -6,14 +6,15 @@
 	<% f.inputs do %>
 	
 	
-		<%= f.input :title %>
+		<%= f.input :title, :hints => 'This is a hint' %>
 	
 		<!-- For rating the photo -->
 		<%= f.input :rating, 
 					:as => :radio, 
-					:collection => (1..5), 
-					:input_html => { :class => "star" } %>
-
+					:collection => (1..5),
+					:input_html => { :class => "star" },
+					:hint => 'Higher rated photos will appear on the homepage' %>
+					
 		<%= f.input :category, :collection => Category.all %> 
 
 		<%= f.buttons %>
