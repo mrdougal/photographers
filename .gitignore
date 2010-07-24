@@ -1,20 +1,23 @@
+# rvm stuff 
+# gem sets may be differ between machines
+.rvmrc
+
+# Mac stuff
 .DS_Store
+*.tmproj
+
+# Development and temporary items
 _working/*
 log/*
 tmp/*
-*.tmproj
 *.pid
 
-# Ignore dev and test databases
+# Ignore sqlite databases and database config
 db/*.sqlite3
-
-# Ignore the database config
 config/database.yml
 
-# Ignore capistrano file
+# Ignore capistrano files
 Capfile
-
-# Ignore the deploy file
 config/deploy.rb
 
 # Ignore the cached pages, javascript, stylesheets and uploaded content
