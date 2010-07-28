@@ -1,6 +1,12 @@
 <% title "Get in touch" %>
 
 
-<h1>Contact us</h1>
+<h1>Contact me</h1>
 
-<p>It's really easy to get in touch.</p>
+<p>
+	You can call me on <%= t 'phone' %>
+	or email me at <%= mail_to t('email'), t('email'), :encode => "javascript" %>
+
+	<noscript><%= t('email').gsub!('@', ' at ') %></noscript>
+	
+</p>

@@ -30,7 +30,7 @@ module NavigationHelper
   def default_links
     
     out = []
-    [:about, :contact, :photos].each do |val|
+    [:contact, :photos].each do |val|
       out << nav_link(val)
     end
     out
